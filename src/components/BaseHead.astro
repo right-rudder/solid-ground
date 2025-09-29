@@ -1,38 +1,136 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
-import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
+import "../styles/global.css";
+import { SITE_TITLE, SITE_KEYWORDS } from "../data/consts";
 
 interface Props {
-	title: string;
-	description: string;
-	image?: ImageMetadata;
+  title: string;
+  description: string;
+  image?: string;
+  keywords?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const {
+  title,
+  description,
+  image = "/blog-placeholder-1.jpg",
+  keywords = SITE_KEYWORDS,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/blitz-logo.png" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<!-- Google tag (gtag.js) -->
+<script src="https://www.googletagmanager.com/gtag/js?id=G-XWPP0QF8N9"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-XWPP0QF8N9");
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.blitzaviation.com",
+    "name": "Blitz Aviation",
+    "url": "https://www.blitzaviation.com",
+    "logo": "https://www.blitzaviation.com/blitz-logo.png",
+    "description": "Blitz Aviation offers accelerated flight training programs at Ogden-Hinckley Airport (KOGD) in Utah. Serving Ogden, Salt Lake City, and surrounding areas, we provide private pilot, instrument rating, commercial pilot, and certified flight instructor training.",
+    "image": "https://www.blitzaviation.com/images/ogden-flight-training.jpg",
+    "telephone": "+1-801-823-4122",
+    "email": "info@blitzaviation.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3909 Airport Rd",
+      "addressLocality": "Ogden",
+      "addressRegion": "UT",
+      "postalCode": "84405",
+      "addressCountry": "US"
+    },
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Visa, Mastercard, American Express, Discover, Checks",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.19415996924632,
+      "longitude": -112.00750135068749
+    },
+    "hasMap": "https://maps.app.goo.gl/wQMxZ949rDc7GHTH8",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/blitzaviation",
+      "https://www.yelp.com/biz/blitz-aviation-ogden"
+    ],
+    "areaServed": {
+      "@type": "Place",
+      "name": [
+        "Ogden",
+        "Salt Lake City",
+        "Layton",
+        "Bountiful",
+        "Northern Utah"
+      ]
+    },
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "serviceType": "Flight Instruction"
+      },
+      "priceCurrency": "USD",
+      "price": "Varies"
+    },
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "name": "IATA Code",
+        "value": "OGD"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "ICAO Code",
+        "value": "KOGD"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Airport Code",
+        "value": "OGD"
+      }
+    ]
+  }
+</script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -41,17 +139,25 @@ const { title, description, image = FallbackImage } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Blitz Aviation" />
+<meta name="geo.region" content="US-UT" />
+<meta name="geo.placename" content="Ogden" />
+<meta name="geo.position" content="41.19415996924632;-112.00750135068749" />
+<meta name="ICBM" content="41.19415996924632, -112.00750135068749" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Blitz Aviation" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
