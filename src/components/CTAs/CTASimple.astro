@@ -1,0 +1,25 @@
+---
+
+const example = {
+    src: "/path/to/image.jpg",
+    alt: "Example Image",
+    title: "Ready to get started?",
+    description: "Contact us today to discuss your project and discover how we can help you achieve your goals.",
+    button: {
+        text: "Contact Us",
+        href: "/contact",
+    },
+};
+
+const { content = example } = Astro.props;
+---
+
+<section>
+    <img 
+    src={content.src} 
+    alt={content.alt}
+    />
+    <h2>Ready to get started?</h2>
+    <p>Contact us today to discuss your project and discover how we can help you achieve your goals.</p>
+    <a href="/contact" class="btn-primary">Contact Us</a>
+</section>
