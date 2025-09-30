@@ -83,10 +83,11 @@ export const menu: MenuItem[] = [
 
 <style>
   .navbar {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background: #fff;
+    background: transparent;
     border-bottom: 1px transparent #ddd;
     z-index: 100;
   }
@@ -131,6 +132,7 @@ export const menu: MenuItem[] = [
     padding: 0.5rem 0;
     margin: 0;
     border: 1px solid #ddd;
+    z-index: 101;
   }
 
   .sub-menu li {
