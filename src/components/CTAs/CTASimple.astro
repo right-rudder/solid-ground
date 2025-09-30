@@ -1,7 +1,9 @@
 ---
+import ImageComp from "../utils/ImageComp.astro";
+
 
 const example = {
-    src: "/path/to/image.jpg",
+    src: "/src/assets/student using simulator 2.jpg",
     alt: "Example Image",
     title: "Ready to get started?",
     description: "Contact us today to discuss your project and discover how we can help you achieve your goals.",
@@ -14,12 +16,17 @@ const example = {
 const { content = example } = Astro.props;
 ---
 
-<section>
-    <img 
-    src={content.src} 
-    alt={content.alt}
-    />
-    <h2>Ready to get started?</h2>
-    <p>Contact us today to discuss your project and discover how we can help you achieve your goals.</p>
-    <a href="/contact" class="btn-primary">Contact Us</a>
+<section class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 flex gap-12">
+    <div class="rounded-2xl shadow-lg px-12 py-6 bg-white flex-shrink-0 lg:w-1/2">
+        <ImageComp 
+            src={content.src} 
+            alt={content.alt}
+            classes="w-1/2 h-1/2object-cover rounded-2xl shadow-2xl"
+        />
+    </div>
+    <div class="flex flex-col justify-center ml-0 lg:ml-12 mt-6 lg:mt-0 w-full lg:w-1/2 text-center lg:text-left">
+        <h2>Ready to get started?</h2>
+        <p>Contact us today to discuss your project and discover how we can help you achieve your goals.</p>
+        <a href="/contact" class="btn-primary">Contact Us</a>
+    </div>
 </section>
