@@ -8,9 +8,19 @@ export default function FAQs({ faqs, type }) {
           maxWidth: "1120px",
           margin: "0 auto",
           padding: "6rem 1.5rem",
+          textAlign: "center",
         }}
       >
-        <div style={{ maxWidth: "1024px", margin: "0 auto" }}>
+        <div
+          style={{
+            maxWidth: "1024px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <p
             style={{
               marginTop: "3rem",
@@ -75,7 +85,7 @@ export default function FAQs({ faqs, type }) {
                   style={{
                     cursor: "pointer",
                     fontWeight: "600",
-                    color: "#0067a9", // text-primary-700
+                    color: "#464646", // text-muted-700
                     listStyle: "none",
                   }}
                 >
@@ -94,21 +104,26 @@ export default function FAQs({ faqs, type }) {
           </dl>
         </div>
 
-        <p
+        <a
+          href="/contact"
           style={{
-            textAlign: "center",
+            color: "#ffffff",
+            textDecoration: "underline",
+            background: "#0067a9", // text-primary-700
+            padding: "0.75rem 1.5rem",
+            borderRadius: "0.375rem",
+            fontWeight: "600",
+            display: "inline-block",
             marginTop: "3rem",
-            color: "#4b5563", // text-gray-600
+            textAlign: "center",
+            maxWidth: "200px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            textDecoration: "none",
           }}
         >
-          If you have any additional questions please send us an email to{" "}
-          <a
-            href="/contact"
-            style={{ color: "#52525b", textDecoration: "underline" }}
-          >
-            Contact Us
-          </a>
-        </p>
+          Contact Us
+        </a>
       </div>
     </div>
   );
