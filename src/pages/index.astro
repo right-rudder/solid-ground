@@ -5,6 +5,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { GeneralFAQs } from "../data/general-faqs";
 import FAQs from '../components/Sections/FAQs.jsx';
+import CounterContainer from '../components/Cards/CounterContainer.astro';
 ---
 
 <BaseLayout 
@@ -12,6 +13,7 @@ import FAQs from '../components/Sections/FAQs.jsx';
   	siteDescription=""
 >
 	<HeaderSlider />
+	<CounterContainer />
 	<CTASimple />
 	<FAQs faqs={GeneralFAQs} type="general" client:visible />
 </BaseLayout>
