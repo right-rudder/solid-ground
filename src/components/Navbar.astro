@@ -1,4 +1,5 @@
 ---
+import LogoSolidGroundAviation from "../components/LogoSolidGroundAviation.astro"
 export type MenuItem = {
   label: string;
   url: string;
@@ -45,8 +46,8 @@ export const menu: MenuItem[] = [
   <div class="container">
     <!-- Logo -->
     <div class="navbar-logo">
-      <a class="logo" href="/">
-        <img src="/logo.png" alt="Logo" />
+      <a class="logo" href="/" style="background: #333;">
+        <LogoSolidGroundAviation />
       </a>
     </div>
 
@@ -118,10 +119,13 @@ export const menu: MenuItem[] = [
 
   .menu-item {
     position: relative;
+    text-decoration: none;
+    
   }
 
   .menu-item-has-children:hover > .sub-menu {
     display: block;
+    text-decoration: none;
   }
 
   .sub-menu {
@@ -133,10 +137,12 @@ export const menu: MenuItem[] = [
     margin: 0;
     border: 1px solid #ddd;
     z-index: 101;
+    text-decoration: none;
   }
 
   .sub-menu li {
     padding: 0.25rem 1rem;
+    text-decoration: none;
   }
 
   /* Mobile */
