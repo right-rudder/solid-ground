@@ -1,5 +1,6 @@
 ---
 import ImageComp from "../utils/ImageComp.astro"
+import FormEnroll from "../Forms/FormEnroll.astro";
 
 const { content } = Astro.props;
 ---
@@ -13,7 +14,7 @@ const { content } = Astro.props;
         <div class="flex flex-col lg:flex-row gap-8 mb-16 pb-14 border-b-[1px] border-gray-50/30">
             <!-- Placeholder for form -->
             <div class="flex-1 bg-gray-100 text-gray-900 rounded-3xl p-8 flex items-center justify-center">
-                <span class="text-xl font-semibold">Form Placeholder</span>
+                <FormEnroll />
             </div>
 
             <!-- Main Card -->
