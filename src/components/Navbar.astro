@@ -15,227 +15,241 @@ export type NavbarButton = {
 };
 
 export const menu: MenuItem[] = [
-  {
-    label: "Home",
-    url: "#",
-    children: [
-      { label: "Private Jet Charters", url: "/" },
-      { label: "Flight Animation", url: "/homepage-animation" },
-    ],
-  },
-  {
-    label: "About Us",
-    url: "#",
-    children: [
-      { label: "Testimonials", url: "/testimonials" },
-      { label: "Team", url: "/team" },
-      { label: "FAQ", url: "/faq" },
-      { label: "404 Page", url: "/404-page" },
-    ],
-  },
-  {
-    label: "Products",
-    url: "#",
-    children: [
-      { label: "Shop", url: "/shop" },
-      { label: "Cart", url: "/cart" },
-      { label: "Checkout", url: "/checkout" },
-      { label: "My Account", url: "/my-account" },
-    ],
-  },
+  { label: "Home", url: "#", children: [{ label: "Solid Ground Aviation", url: "/" }, { label: "Flight Animation", url: "/homepage-animation" }] },
+  { label: "About Us", url: "#", children: [{ label: "About Us", url: "/#" }, { label: "Team", url: "/#" }, { label: "FAQ", url: "/#" }, { label: "Blog", url: "/#" }] },
+  { label: "Training", url: "#", children: [{ label: "Ground School", url: "/#" }, { label: "Student Pilots", url: "/#" }, { label: "Licensed Pilots", url: "/checkout" }, { label: "My Account", url: "/my-account" }] },
+  { label: "Contacts", url: "/contacts" },
 ];
 
 export const buttons: NavbarButton[] = [
-  { text: "Get a Quote", href: "/contact", style: "btn-main" },
+  { text: "Enroll Now", href: "/#", style: "btn-main" },
 ];
 ---
 
-<nav class="navbar">
+<nav id="navbar" class="navbar">
   <div class="container">
     <!-- Logo -->
-    <div class="navbar-logo">
-      <a href="/" class="logo">
-        <LogoSolidGroundAviation />
-      </a>
-    </div>
+    <a href="/" class="logo">
+      <LogoSolidGroundAviation />
+    </a>
 
-    <!-- Menu -->
-    <div id="navbar" class="navbar-collapse">
-      <ul class="nav navbar-nav">
-        {menu.map((item) => (
-          <li class={`menu-item ${item.children ? "menu-item-has-children" : ""}`}>
-            <a href={item.url}><span>{item.label}</span></a>
-            {item.children && (
-              <ul class="sub-menu">
-                {item.children.map((child) => (
-                  <li class="menu-item">
-                    <a href={child.url}><span>{child.label}</span></a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <!-- Desktop Menu -->
+    <ul class="nav">
+      {menu.map((item, index) => (
+        <li class={`menu-item ${item.children ? "has-children" : ""}`} data-index={index}>
+          <a href={item.url}>{item.label}</a>
+          {item.children && (
+            <ul class="sub-menu">
+              {item.children.map((child) => (
+                <li><a href={child.url}>{child.label}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
 
     <!-- Buttons -->
-    <div class="navbar-buttons">
+    <div class="buttons">
       {buttons.map((button) => (
-        <a
-          href={button.href}
-          class={button.style}
-          style="margin-left: 10px;"
-        >
-          {button.text}
-        </a>
+        <a href={button.href} class={button.style}>{button.text}</a>
       ))}
     </div>
 
-    <!-- Mobile Toggle -->
-    <div class="navbar-controls">
-      <button type="button" class="navbar-toggle" aria-label="Toggle menu">
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-      </button>
+    <!-- Mobile Hamburger -->
+    <button id="mobile-toggle" class="hamburger" aria-label="Toggle menu">
+      <span class="bar top"></span>
+      <span class="bar middle"></span>
+      <span class="bar bottom"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <ul>
+      {menu.map((item, index) => (
+        <li class="mobile-item" data-index={index}>
+          <a href={item.url}>{item.label}</a>
+          {item.children && (
+            <ul class="mobile-submenu">
+              {item.children.map((child) => (
+                <li><a href={child.url}>{child.label}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <div class="mobile-buttons">
+      {buttons.map((button) => (
+        <a href={button.href} class={button.style}>{button.text}</a>
+      ))}
     </div>
   </div>
 </nav>
 
 <style>
-  .navbar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: transparent;
-    z-index: 100;
-  }
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
 
-  .navbar-logo .logo {
-    display: flex;
-    align-items: center;
-  }
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
 
-  .navbar-collapse {
-    display: flex;
-    gap: 1rem;
-  }
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.menu-item { position: relative; }
+.menu-item a {
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.menu-item a:hover {
+  text-decoration: underline;
+}
 
-  .nav {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-  }
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 0.5rem 0;
+  display: none;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+}
+.menu-item:hover .sub-menu {
+  display: block;
+}
 
-  .menu-item {
-    position: relative;
-  }
+.sub-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.sub-menu li a:hover {
+  background: #007ecb;
+  color: #fff;
+  transform: scale(1.05) skewX(-10deg);
+}
 
-  .menu-item-has-children:hover > .sub-menu {
-    display: block;
-  }
+.buttons a {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-main { background-color: #007ecb; color: #fff; }
+.btn-second { background-color: #e06900; color: #fff; }
+.buttons a:hover { filter: brightness(1.1); }
 
-  .sub-menu {
-    display: none;
-    position: absolute;
-    background: #fff;
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    border: 1px solid #ddd;
-    z-index: 101;
-  }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.bar { width: 24px; height: 2px; background: #333; transition: all 0.3s ease; }
 
-  .sub-menu li {
-    padding: 0.25rem 1rem;
-  }
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.mobile-menu.open {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-height: 100vh;
+}
 
-  .btn-main {
-    background-color: #007ecb;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-  }
+.mobile-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.mobile-item:hover .mobile-submenu { max-height: 20rem; }
 
-  .btn-second {
-    background-color: #e06900;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-  }
+/* Mobile submenu animation */
+.mobile-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.mobile-submenu.open {
+  max-height: 20rem; /* or big enough to fit content */
+  opacity: 1;
+}
 
-  .navbar-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .icon-bar {
-    width: 24px;
-    height: 2px;
-    background: #333;
-  }
-
-  @media (max-width: 768px) {
-    .navbar-collapse {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background: #fff;
-      padding: 1rem;
-    }
-
-    .navbar-collapse.open {
-      display: flex;
-    }
-
-    .nav {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .menu-item-has-children > .sub-menu {
-      position: static;
-      border: none;
-    }
-
-    .navbar-toggle {
-      display: flex;
-    }
-
-    .navbar-buttons {
-      display: flex;
-      flex-direction: column;
-      margin-top: 1rem;
-    }
-
-    .navbar-buttons a {
-      margin: 0.25rem 0;
-    }
-  }
+@media (max-width: 768px) {
+  .nav, .buttons { display: none; }
+  .hamburger { display: flex; }
+}
 </style>
 
 <script type="module">
-  const button = document.querySelector(".navbar-toggle");
-  const menu = document.querySelector(".navbar-collapse");
+  const navbar = document.getElementById("navbar");
+  const mobileToggle = document.getElementById("mobile-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-  button?.addEventListener("click", () => {
-    menu?.classList.toggle("open");
+  // Scroll effect
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+
+  // Mobile menu open/close
+  mobileToggle?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("open");
+  });
+
+  // Mobile submenu toggles
+  const mobileItems = document.querySelectorAll(".mobile-item");
+
+  mobileItems.forEach((item) => {
+    const submenu = item.querySelector(".mobile-submenu");
+    if (submenu) {
+      item.querySelector("a").addEventListener("click", (e) => {
+        e.preventDefault(); // prevent following link if has children
+        submenu.classList.toggle("open");
+      });
+    }
   });
 </script>
