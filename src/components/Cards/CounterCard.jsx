@@ -11,10 +11,11 @@ const Counter = ({ value, title, suffix }) => {
             enableScrollSpy
             scrollSpyDelay={100}
             scrollSpyOnce
+            className="text-orange-400"
           />
-          <span className="text-main-blue">{suffix}</span>
+          <span className="text-orange-400">{suffix}</span>
         </span>
-        <h2 className="mt-6 font-semibold text-xl/8 text-balance text-gray-900 text-main-black/80 text-center whitespace-nowrap uppercase">
+        <h2 className="mt-6 font-semibold text-xl/8 text-balance text-gray-700 text-main-black/80 text-center whitespace-nowrap uppercase">
           {title}
         </h2>
       </div>

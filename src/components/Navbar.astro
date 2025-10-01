@@ -1,5 +1,4 @@
 ---
-// NavbarSolidGroundAviation.astro
 import LogoSolidGroundAviation from "../components/LogoSolidGroundAviation.astro";
 
 export type MenuItem = {
@@ -180,11 +179,9 @@ export const buttons: NavbarButton[] = [
 .bar { width: 24px; height: 2px; background: #333; transition: all 0.3s ease; }
 
 .mobile-menu {
-  position: fixed;
-  top:0;
-  left:0;
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 100%;
   left: 0;
   width: 100%;
@@ -198,6 +195,7 @@ export const buttons: NavbarButton[] = [
   padding-top: 1rem;
   padding-bottom: 1rem;
   max-height: 100vh;
+  overflow: visible;
 }
 
 .mobile-submenu {
@@ -207,6 +205,19 @@ export const buttons: NavbarButton[] = [
 }
 
 .mobile-item:hover .mobile-submenu { max-height: 20rem; }
+
+.mobile-item > a::after {
+  content: "▸";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-item .mobile-submenu.open + a::after,
+.mobile-item a.open::after {
+  transform: rotate(90deg);
+}
+
 
 /* Mobile submenu animation */
 .mobile-submenu {
@@ -257,4 +268,6 @@ export const buttons: NavbarButton[] = [
       });
     }
   });
+
+  
 </script>
