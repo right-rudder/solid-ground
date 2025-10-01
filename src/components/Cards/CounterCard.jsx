@@ -4,7 +4,7 @@ const Counter = ({ value, title, suffix }) => {
   return (
     <div className="flex flex-col gap-20 group">
       <div className="border-r border-white/20 flex flex-col items-center gap-1 group-last:border-0">
-        <span className="mt-2 text-4xl lg:text-7xl font-semibold tracking-tight text-pretty text-accent-800 sm:text-5xl">
+        <span className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-pretty text-accent-800 ">
           <span className="sr-only">{value}</span>
           <CountUp
             end={value}
