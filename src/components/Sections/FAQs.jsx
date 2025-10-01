@@ -108,7 +108,6 @@ export default function FAQs({ faqs, type }) {
           href="/contact"
           style={{
             color: "#ffffff",
-            textDecoration: "underline",
             background: "#0067a9", // text-primary-700
             padding: "0.75rem 1.5rem",
             borderRadius: "0.375rem",
