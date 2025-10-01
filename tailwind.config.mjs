@@ -1,12 +1,18 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./pages/**/*.{astro,html,js,jsx,ts,tsx,vue}",
+    "./components/**/*.{astro,html,js,jsx,ts,tsx,vue}",
+    "./layouts/**/*.{astro,html,js,jsx,ts,tsx,vue}",
+  ],
   theme: {
     extend: {
       fontFamily: {
         sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
-        // title: ["Kanit", ...defaultTheme.fontFamily.sans],
         stock: [
           "ui-sans-serif",
           "system-ui",
@@ -19,7 +25,7 @@ export default {
       },
       colors: {
         muted: {
-          50: "#ffffff", // base (white)
+          50: "#ffffff",
           100: "#efefef",
           200: "#dcdcdc",
           300: "#bdbdbd",
@@ -39,7 +45,7 @@ export default {
           400: "#34b7fc",
           500: "#0a9fed",
           600: "#007ecb",
-          700: "#0067a9", // primary
+          700: "#0067a9",
           800: "#055587",
           900: "#0a4670",
           950: "#072d4a",
@@ -51,22 +57,13 @@ export default {
           300: "#ffca48",
           400: "#ffb31e",
           500: "#fc8f04",
-          600: "#e06900", // accent
+          600: "#e06900",
           700: "#b94604",
           800: "#96360a",
           900: "#7b2d0c",
           950: "#471401",
         },
       },
-      // minHeight: {
-      //   "1/2": "50vh",
-      //   "2/3": "66vh",
-      //   "3/4": "75vh",
-      // },
-      // height: {
-      //   "1/2": "50vh",
-      //   "3/4": "75vh",
-      // },
       keyframes: {
         zoom: {
           "0%": { transform: "scale(1)" },
@@ -100,8 +97,7 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    // Inject @font-face with font-display swap for LCP optimization
+    typography,
     function ({ addBase }) {
       addBase({
         "@font-face": {
