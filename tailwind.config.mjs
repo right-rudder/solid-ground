@@ -4,19 +4,19 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      //   fontFamily: {
-      //     sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
-      //     title: ["Kanit", ...defaultTheme.fontFamily.sans],
-      //     stock: [
-      //       "ui-sans-serif",
-      //       "system-ui",
-      //       "sans-serif",
-      //       "Apple Color Emoji",
-      //       "Segoe UI Emoji",
-      //       "Segoe UI Symbol",
-      //       "Noto Color Emoji",
-      //     ],
-      //   },
+      fontFamily: {
+        sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
+        // title: ["Kanit", ...defaultTheme.fontFamily.sans],
+        stock: [
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+      },
       colors: {
         muted: {
           50: "#ffffff", // base (white)
@@ -99,26 +99,19 @@ export default {
       },
     },
   },
-  //   plugins: [
-  //     require("@tailwindcss/typography"),
-  //     // Inject @font-face with font-display swap for LCP optimization
-  //     function ({ addBase }) {
-  //       addBase({
-  //         "@font-face": {
-  //           fontFamily: "Kanit",
-  //           fontWeight: "400",
-  //           fontStyle: "normal",
-  //           fontDisplay: "swap",
-  //           src: 'url("/_astro/kanit-lat….C1Jk-JCr.woff2") format("woff2")',
-  //         },
-  //         "@font-face": {
-  //           fontFamily: "Open Sans Variable",
-  //           fontWeight: "400",
-  //           fontStyle: "normal",
-  //           fontDisplay: "swap",
-  //           src: 'url("/_astro/open-sans….CYuRH5ug.woff2") format("woff2")',
-  //         },
-  //       });
-  //     },
-  //   ],
+  plugins: [
+    require("@tailwindcss/typography"),
+    // Inject @font-face with font-display swap for LCP optimization
+    function ({ addBase }) {
+      addBase({
+        "@font-face": {
+          fontFamily: "Open Sans Variable",
+          fontWeight: "400",
+          fontStyle: "normal",
+          fontDisplay: "swap",
+          src: 'url("/_astro/open-sans….CYuRH5ug.woff2") format("woff2")',
+        },
+      });
+    },
+  ],
 };

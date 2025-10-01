@@ -6,14 +6,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { GeneralFAQs } from "../data/general-faqs";
 import FAQs from '../components/Sections/FAQs.jsx';
 import CounterContainer from '../components/Cards/CounterContainer.astro';
+
+const data = {
+	header: {
+		title: "Train Smarter with <span>Solid Ground Aviation</span>",
+		subtitle:
+			"FAA-approved simulator and ground school training — cost-effective, safe, and weather-proof pilot education in the DC/Baltimore region.",
+		buttons: [
+			{ text: "Start Training", href: "/contact", style: "btn-main" },
+			{ text: "Learn More", href: "/about", style: "btn-second" },
+		],
+	},
+	cta: {
+		title: "Ready to Begin Your Pilot Journey?",
+		description:
+			"Take the first step toward your Private Pilot or Instrument Rating with simulator-based training at Solid Ground Aviation. Safe, affordable, and FAA-approved.",
+		button: { text: "Get Started", href: "/contact" },
+		image: {
+			src: "/src/assets/student-using-simulator-2.jpg",
+			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+		},
+	},
+};
+
+
 ---
 
 <BaseLayout 
-	siteTitle=""
-  	siteDescription=""
+	siteTitle="Solid Ground Aviation"
+  	siteDescription=" "
 >
-	<HeaderSlider />
+	<HeaderSlider content={data.header} />
 	<CounterContainer />
-	<CTASimple />
+	<CTASimple content={data.cta} />
 	<FAQs faqs={GeneralFAQs} type="general" client:visible />
 </BaseLayout>
