@@ -8,12 +8,12 @@ const { content } = Astro.props;
         <!-- Hero Section -->
         <div class="flex flex-col lg:flex-row gap-8 mb-16">
             <!-- Placeholder for form -->
-            <div class="flex-1 bg-gray-100 text-gray-900 rounded-xl p-8 flex items-center justify-center">
+            <div class="flex-1 bg-gray-100 text-gray-900 rounded-3xl p-8 flex items-center justify-center">
             <span class="text-xl font-semibold">Form Placeholder</span>
             </div>
 
             <!-- Main Card -->
-            <div class="flex-1 relative rounded-xl overflow-hidden">
+            <div class="flex-1 relative rounded-3xl overflow-hidden">
             <img src="/src/assets/student using simulator 2.jpg" alt="Flight Promo" class="w-full h-full object-cover opacity-80"/>
             <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center p-6">
                 <h2 class="text-white text-2xl font-bold mb-2">{content.title}</h2>
@@ -21,7 +21,7 @@ const { content } = Astro.props;
                 <div class="flex gap-4"> 
                     {
                         content.buttons && content.buttons.map((button) => ( 
-                            <a href={button.href} class="bg-neutral-600 px-6 py-2 rounded hover:bg-orange-700 transition">{button.text}</a>
+                            <a href={button.href} class="bg-neutral-600 px-6 py-2 rounded-3xl hover:bg-orange-700 transition">{button.text}</a>
                         ))
                     }
                 </div>
@@ -43,7 +43,7 @@ const { content } = Astro.props;
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
                 {content.advantages.bullets.map((bullet) => ( 
-                    <div class="relative rounded-xl overflow-hidden">
+                    <div class="relative rounded-3xl overflow-hidden">
                         <img src="/src/assets/student using simulator 2.jpg" alt="Madrid - Prague" class="w-full h-64 object-cover"/>
                         <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white">
                         <h4 class="font-bold">{bullet.title}</h4>

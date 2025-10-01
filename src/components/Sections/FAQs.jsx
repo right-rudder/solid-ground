@@ -113,7 +113,7 @@ export default function FAQs({ faqs, type }) {
             color: "#ffffff",
             background: "#0067a9", // text-primary-700
             padding: "0.75rem 1.5rem",
-            borderRadius: "0.375rem",
+            borderRadius: "1.5rem",
             fontWeight: "600",
             display: "inline-block",
             marginTop: "3rem",

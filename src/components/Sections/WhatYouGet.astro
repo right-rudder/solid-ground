@@ -5,7 +5,7 @@ const { content } = Astro.props;
 <section class="flex flex-col md:flex-row items-center justify-between gap-8 p-8 bg-white max-w-5xl mx-auto">
   <!-- Text content -->
   <div class="md:w-1/2">
-    <p class="text-sm text-gray-400 uppercase mb-2">{content.upperHeading}</p>
+    <p class="text-sm text-orange-400 mb-2">{content.upperHeading}</p>
     <h2 class="text-3xl font-bold mb-4">{content.title}</h2>
     <p class="text-gray-600 mb-6">
       {content.description}
@@ -14,18 +14,18 @@ const { content } = Astro.props;
       <span class="text-blue-600 font-bold">8-800-10-500</span>
       {
         content.buttons && content.buttons.map((button) => ( 
-          <a class={`btn ${button.style}`} href={button.href}>{button.text} →</a>
+          <a class={`btn ${button.style} bg-blue-500 rounded-3xl text-white py-2 px-4`} href={button.href}>{button.text} →</a>
         ))
       }
     </div>
   </div>
 
   <!-- Image content -->
-  <div class="md:w-1/2 relative rounded-2xl">
+  <div class="md:w-1/2 relative rounded-3xl">
     <ImageComp 
       src={content.image.src} 
       alt={content.image.alt} 
-      class="w-full rounded-2xl shadow-lg"
+      class="w-full rounded-3xl shadow-lg"
     />
     <span class="absolute top-4 right-4 bg-blue-600 text-white text-sm px-3 py-1 rounded">27 YEARS OF EXPERIENCE</span>
   </div>
