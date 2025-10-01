@@ -11,7 +11,7 @@ const { content } = Astro.props;
       {content.description}
     </p>
     <div class="flex items-center gap-4">
-      <span class="text-red-600 font-bold">8-800-10-500</span>
+      <span class="text-blue-600 font-bold">8-800-10-500</span>
       {
         content.buttons && content.buttons.map((button) => ( 
           <a class={`btn ${button.style}`} href={button.href}>{button.text} →</a>
@@ -27,6 +27,6 @@ const { content } = Astro.props;
       alt={content.image.alt} 
       class="w-full rounded-2xl shadow-lg"
     />
-    <span class="absolute top-4 right-4 bg-red-600 text-white text-sm px-3 py-1 rounded">27 YEARS OF EXPERIENCE</span>
+    <span class="absolute top-4 right-4 bg-blue-600 text-white text-sm px-3 py-1 rounded">27 YEARS OF EXPERIENCE</span>
   </div>
 </section>

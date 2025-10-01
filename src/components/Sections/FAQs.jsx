@@ -7,13 +7,13 @@ export default function FAQs({ faqs, type }) {
         style={{
           maxWidth: "1120px",
           margin: "0 auto",
-          padding: "6rem 1.5rem",
+          padding: "2rem 1.5rem",
           textAlign: "center",
         }}
       >
         <div
           style={{
-            maxWidth: "1024px",
+            maxWidth: "80rem",
             margin: "0 auto",
             display: "flex",
             flexDirection: "column",
@@ -66,6 +66,9 @@ export default function FAQs({ faqs, type }) {
               flexWrap: "wrap",
               gap: "0.5rem",
               marginTop: "1.5rem",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "start",
             }}
           >
             {faqs.map((faq, index) => (
@@ -77,7 +80,7 @@ export default function FAQs({ faqs, type }) {
                   padding: "1rem",
                   transition: "all 0.3s ease-in-out",
                   boxShadow: "none",
-                  width: "40%",
+                  width: "30%",
                   background: "#dcdcdc", // bg-muted-200
                 }}
               >

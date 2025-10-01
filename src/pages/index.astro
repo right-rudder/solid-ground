@@ -9,6 +9,7 @@ import CounterContainer from '../components/Cards/CounterContainer.astro';
 import Benefits from '../components/Sections/Benefits.astro';
 import WhatYouGet from '../components/Sections/WhatYouGet.astro';
 import Gallery from '../components/Sections/Gallery.astro';
+import CTAFloating from '../components/CTAs/CTAFloating.astro';
 
 const data = {
 	header: {
@@ -145,6 +146,21 @@ const data = {
 			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
 		},
 	},
+	ctas: {
+		ctaFloating: {
+			upperHeading: "Why Choose Us",
+			title: "Experience the Future of Pilot Training",
+			description:
+				"Discover the benefits of simulator-based training with Solid Ground Aviation. Safe, cost-effective, and weather-proof pilot education tailored to your needs.",
+			button: { text: "Learn More", href: "/about" },
+			images: [
+				{
+				src: "/src/assets/student using simulator 2.jpg",
+				alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+			}
+		],
+		},
+	},
 };
 
 
@@ -158,6 +174,7 @@ const data = {
 	<WhatYouGet content={data.offering} />
 	<Benefits content={data.benefits} />
 	<Gallery content={data.advantages} />
-	<CTASimple content={data.cta} />
+	<CTAFloating content={data.ctas.ctaFloating} />
 	<FAQs faqs={GeneralFAQs} type="general" client:visible />
+	<CTASimple content={data.cta} />
 </BaseLayout>
