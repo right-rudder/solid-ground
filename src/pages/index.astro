@@ -7,6 +7,7 @@ import { GeneralFAQs } from "../data/general-faqs";
 import FAQs from '../components/Sections/FAQs.jsx';
 import CounterContainer from '../components/Cards/CounterContainer.astro';
 import Benefits from '../components/Sections/Benefits.astro';
+import WhatYouGet from '../components/Sections/WhatYouGet.astro';
 
 const data = {
 	header: {
@@ -17,6 +18,20 @@ const data = {
 			{ text: "Start Training", href: "/contact", style: "btn-main" },
 			{ text: "Learn More", href: "/about", style: "btn-second" },
 		],
+	},
+	offering: {
+		upperHeading: "What We Offer",
+		title: "Comprehensive Pilot Training Solutions",
+		description:
+			"At Solid Ground Aviation, we provide a range of training services to help you achieve your aviation goals:",
+		buttons: [
+			{ text: "View Courses", href: "/courses" },
+			{ text: "Contact Us", href: "/contact" },
+		],
+		image: {
+			src: "/src/assets/student using simulator 2.jpg",
+			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+		},
 	},
 	benefits: {
 		upperHeading: "Why Choose Us",
@@ -90,6 +105,7 @@ const data = {
   	siteDescription=" "
 >
 	<HeaderSlider content={data.header} />
+	<WhatYouGet content={data.offering} />
 	<Benefits content={data.benefits} />
 	<CounterContainer />
 	<CTASimple content={data.cta} />
