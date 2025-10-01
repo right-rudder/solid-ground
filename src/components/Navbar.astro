@@ -1,9 +1,17 @@
 ---
-import LogoSolidGroundAviation from "../components/LogoSolidGroundAviation.astro"
+// NavbarSolidGroundAviation.astro
+import LogoSolidGroundAviation from "../components/LogoSolidGroundAviation.astro";
+
 export type MenuItem = {
   label: string;
   url: string;
   children?: MenuItem[];
+};
+
+export type NavbarButton = {
+  text: string;
+  href: string;
+  style: "btn-main" | "btn-second";
 };
 
 export const menu: MenuItem[] = [
@@ -35,10 +43,10 @@ export const menu: MenuItem[] = [
       { label: "My Account", url: "/my-account" },
     ],
   },
-  {
-    label: "Contacts",
-    url: "/contacts",
-  },
+];
+
+export const buttons: NavbarButton[] = [
+  { text: "Get a Quote", href: "/contact", style: "btn-main" },
 ];
 ---
 
@@ -46,7 +54,7 @@ export const menu: MenuItem[] = [
   <div class="container">
     <!-- Logo -->
     <div class="navbar-logo">
-      <a class="logo" href="/" style="background: #333;">
+      <a href="/" class="logo">
         <LogoSolidGroundAviation />
       </a>
     </div>
@@ -71,9 +79,22 @@ export const menu: MenuItem[] = [
       </ul>
     </div>
 
-    <!-- Controls -->
+    <!-- Buttons -->
+    <div class="navbar-buttons">
+      {buttons.map((button) => (
+        <a
+          href={button.href}
+          class={button.style}
+          style="margin-left: 10px;"
+        >
+          {button.text}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Toggle -->
     <div class="navbar-controls">
-      <button type="button" class="navbar-toggle">
+      <button type="button" class="navbar-toggle" aria-label="Toggle menu">
         <span class="icon-bar top-bar"></span>
         <span class="icon-bar middle-bar"></span>
         <span class="icon-bar bottom-bar"></span>
@@ -89,7 +110,6 @@ export const menu: MenuItem[] = [
     align-items: center;
     padding: 0.5rem 1rem;
     background: transparent;
-    border-bottom: 1px transparent #ddd;
     z-index: 100;
   }
 
@@ -100,12 +120,14 @@ export const menu: MenuItem[] = [
     align-items: center;
   }
 
-  .navbar-logo img {
-    height: 40px;
+  .navbar-logo .logo {
+    display: flex;
+    align-items: center;
   }
 
   .navbar-collapse {
     display: flex;
+    gap: 1rem;
   }
 
   .nav {
@@ -113,19 +135,15 @@ export const menu: MenuItem[] = [
     display: flex;
     gap: 1rem;
     padding: 0;
-    padding-y: 0.5rem;
     margin: 0;
   }
 
   .menu-item {
     position: relative;
-    text-decoration: none;
-    
   }
 
   .menu-item-has-children:hover > .sub-menu {
     display: block;
-    text-decoration: none;
   }
 
   .sub-menu {
@@ -137,15 +155,28 @@ export const menu: MenuItem[] = [
     margin: 0;
     border: 1px solid #ddd;
     z-index: 101;
-    text-decoration: none;
   }
 
   .sub-menu li {
     padding: 0.25rem 1rem;
+  }
+
+  .btn-main {
+    background-color: #007ecb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
     text-decoration: none;
   }
 
-  /* Mobile */
+  .btn-second {
+    background-color: #e06900;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+  }
+
   .navbar-toggle {
     display: none;
     flex-direction: column;
@@ -156,7 +187,6 @@ export const menu: MenuItem[] = [
   }
 
   .icon-bar {
-    display: block;
     width: 24px;
     height: 2px;
     background: #333;
@@ -180,18 +210,28 @@ export const menu: MenuItem[] = [
       gap: 0.5rem;
     }
 
-    .navbar-toggle {
-      display: flex;
-    }
-
     .menu-item-has-children > .sub-menu {
       position: static;
       border: none;
     }
+
+    .navbar-toggle {
+      display: flex;
+    }
+
+    .navbar-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+
+    .navbar-buttons a {
+      margin: 0.25rem 0;
+    }
   }
 </style>
 
-<script>
+<script type="module">
   const button = document.querySelector(".navbar-toggle");
   const menu = document.querySelector(".navbar-collapse");
 
