@@ -1,0 +1,53 @@
+---
+import ImageComp from "./utils/ImageComp.astro";
+const { content } = Astro.props;
+---
+
+<section class="bg-gray-50 py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-sm text-gray-400 uppercase mb-2">{content.upperHeading}</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{content.title}</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        {content.description}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 items-center">
+      <!-- Image -->
+      <div class="lg:col-span-3">
+        <ImageComp 
+            src={content.image.src} 
+            alt={content.image.alt} 
+            class="w-full h-full object-cover rounded-lg shadow-md"
+        />
+      </div>
+
+      <!-- Benefits -->
+      <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+        {
+            content.benefits && content.benefits.map((benefit) => (
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 text-gold-500">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefit.icon || "M5 13l4 4L19 7"} />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-center mb-2">{benefit.title}</h3>
+                    <p class="text-gray-500 text-sm text-center">{benefit.description}</p>
+                </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-10 text-center">
+        {
+            content.buttons && content.buttons.map((button) => (
+                <a href={button.href} class="inline-block bg-gold-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-gold-600 transition">
+                    {button.text}
+                </a>
+            ))
+        }
+    </div>
+  </div>
+</section>
