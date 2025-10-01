@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { GeneralFAQs } from "../data/general-faqs";
 import FAQs from '../components/Sections/FAQs.jsx';
 import CounterContainer from '../components/Cards/CounterContainer.astro';
+import Benefits from '../components/Sections/Benefits.astro';
 
 const data = {
 	header: {
@@ -17,13 +18,65 @@ const data = {
 			{ text: "Learn More", href: "/about", style: "btn-second" },
 		],
 	},
+	benefits: {
+		upperHeading: "Why Choose Us",
+		title: "Benefits of Training with Solid Ground Aviation",
+		description:
+			"Our simulator-based training offers numerous advantages for aspiring pilots. Here are some key benefits:",
+		image: {
+			src: "/src/assets/student using simulator 2.jpg",
+			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+		},
+			benefits: [
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "Cost-Effective Training",
+				description:
+					"Simulator training is significantly more affordable than traditional flight training, allowing you to save money while gaining essential skills.",
+			},
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "Safe Learning Environment",
+				description:
+					"Practice emergency procedures and complex maneuvers in a risk-free setting, enhancing your confidence and competence.",
+			},
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "Weather-Proof Training",
+				description:
+					"Train regardless of weather conditions, ensuring consistent progress in your pilot education without delays.",
+			},
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "Flexible Scheduling",
+				description:
+					"Book sessions at your convenience, making it easier to balance training with work or personal commitments.",
+			},
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "Personalized Instruction",
+				description:
+					"Receive one-on-one coaching tailored to your learning style and pace, maximizing your training effectiveness.",
+			},
+			{
+				icon: "M5 13l4 4L19 7",
+				title: "FAA-Approved Curriculum",
+				description:
+					"Our programs meet FAA standards, ensuring that your training is recognized and valued in the aviation community.",
+			},
+		],
+		buttons: [
+			{ text: "Contact Us", href: "/contact" },
+			{ text: "View Courses", href: "/courses" },
+		],
+	},
 	cta: {
 		title: "Ready to Begin Your Pilot Journey?",
 		description:
 			"Take the first step toward your Private Pilot or Instrument Rating with simulator-based training at Solid Ground Aviation. Safe, affordable, and FAA-approved.",
 		button: { text: "Get Started", href: "/contact" },
 		image: {
-			src: "/src/assets/student-using-simulator-2.jpg",
+			src: "/src/assets/student using simulator 2.jpg",
 			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
 		},
 	},
@@ -37,6 +90,7 @@ const data = {
   	siteDescription=" "
 >
 	<HeaderSlider content={data.header} />
+	<Benefits content={data.benefits} />
 	<CounterContainer />
 	<CTASimple content={data.cta} />
 	<FAQs faqs={GeneralFAQs} type="general" client:visible />
