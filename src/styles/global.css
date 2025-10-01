@@ -16,13 +16,12 @@ body {
   cursor: pointer;
   border: 0;
 }
-// blue -> orange, white -> blue, trasnparent/gray -> white
+
 // what we offer -> colocar mais UVP, explicar melhor, treinamento seguro, condizente FAA, confiabiliade, simuladores configuraveis pro mesmo aviao que tu treina,
 // view courses -> white button
 // form
 // special offer -> pattern
 // CTA Discovery Session
-//
 
 .btn-main {
   background: #fff;
@@ -54,6 +53,7 @@ body {
   margin-right: 8px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
   border-radius: 1.5rem;
+  padding: 4px 6px;
 }
 
 .btn-enroll:hover {

@@ -47,8 +47,8 @@ const { content } = Astro.props;
   
     <div class="pt-10 text-center flex gap-2 items-center justify-center">
         {
-           content.buttons.map((button) => (
-                <a href={button.href} class="inline-block bg-blue-500 text-white px-6 py-3 rounded-3xl font-medium hover:bg-gold-600 transition">
+           content.buttons.map((button, index) => (
+                <a href={button.href} class={index%2 == 0 ? `btn-enroll`: `btn-main`}>
                     {button.text}
                 </a>
             ))
