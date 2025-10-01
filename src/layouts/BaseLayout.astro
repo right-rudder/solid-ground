@@ -45,23 +45,6 @@ function generateBreadcrumbs(pathname: string, customBreadcrumbs?: Array<{name: 
 
     // Special cases for better breadcrumb names
     const specialCases: Record<string, string> = {
-      "pilot-training": "Flight Training",
-      "our-story": "Our Story",
-      "our-team": "Our Team",
-      "our-fleet": "Our Fleet",
-      "join-the-team": "Join Our Team",
-      "the-blitz-program": "Zero to Hero Program",
-      "accelerated-programs": "Accelerated Programs",
-      "private-pilot": "Private Pilot License",
-      "instrument-rating": "Instrument Rating",
-      "commercial-pilot": "Commercial Pilot License",
-      "multi-engine": "Multi-Engine Rating",
-      "cfi": "Flight Instructor Certificate",
-      "cfii": "Instrument Flight Instructor",
-      "discovery-flight": "Discovery Flight",
-      "enrollment-form": "Enrollment",
-      "contact-confirmation": "Contact Confirmation",
-      "privacy-policy-and-terms-of-service": "Privacy & Terms"
     };
 
     if (specialCases[segment]) {
@@ -96,7 +79,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       title={siteTitle || SITE_TITLE}
       description={siteDescription || SITE_DESCRIPTION}
       image={siteImage ||
-        "/team-blitz-aviation-flight-training-utah-salt-lake-new.webp"}
+        ""}
       keywords={siteKeywords || SITE_KEYWORDS}
     />
     
@@ -147,30 +130,24 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#1e40af" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <script
+    <!-- <script
       src="https://widgets.leadconnectorhq.com/loader.js"
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="686696c91b62b35a1a49fc49"></script>
+      data-widget-id=""></script> -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
+    <!-- <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WQWV363W"
+        src="https://www.googletagmanager.com/ns.html?id="
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript
-    >
+    > -->
 
     <!-- End Google Tag Manager (noscript) -->
     <header>
-      <Navbar pathname={pathname} client:load>
-        <!-- <ImageComp
-          src="/src/assets/logos/blitz-aviation-logo.png"
-          alt="Blitz Aviation Logo"
-          classes="w-full h-full object-contain"
-          loading="eager"
-        /> -->
+      <Navbar pathname={pathname}>
       </Navbar>
     </header>
     
