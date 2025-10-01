@@ -16,9 +16,9 @@ export type NavbarButton = {
 
 export const menu: MenuItem[] = [
   { label: "Home", url: "#", children: [{ label: "Solid Ground Aviation", url: "/" }, { label: "Flight Animation", url: "/homepage-animation" }] },
-  { label: "About Us", url: "#", children: [{ label: "About Us", url: "/#" }, { label: "Team", url: "/#" }, { label: "FAQ", url: "/#" }, { label: "Blog", url: "/#" }] },
-  { label: "Training", url: "#", children: [{ label: "Ground School", url: "/#" }, { label: "Student Pilots", url: "/#" }, { label: "Licensed Pilots", url: "/checkout" }, { label: "My Account", url: "/my-account" }] },
-  { label: "Contacts", url: "/contacts" },
+  { label: "About Us", url: "#", children: [{ label: "About Us", url: "/#" }, { label: "Team", url: "/#" },{ label: "Partners", url: "/#" }, { label: "FAQ", url: "/#" }, { label: "Blog", url: "/#" }] },
+  { label: "Training", url: "#", children: [{ label: "Ground School", url: "/#" }, { label: "Student Pilots", url: "/#" }, { label: "Licensed Pilots", url: "/#" }, { label: "Instrument Currency", url: "/#" }] },
+  
 ];
 
 export const buttons: NavbarButton[] = [
@@ -180,7 +180,11 @@ export const buttons: NavbarButton[] = [
 .bar { width: 24px; height: 2px; background: #333; transition: all 0.3s ease; }
 
 .mobile-menu {
-  position: absolute;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
   top: 100%;
   left: 0;
   width: 100%;
@@ -201,6 +205,7 @@ export const buttons: NavbarButton[] = [
   overflow: hidden;
   transition: max-height 0.5s ease;
 }
+
 .mobile-item:hover .mobile-submenu { max-height: 20rem; }
 
 /* Mobile submenu animation */
