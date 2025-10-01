@@ -2,7 +2,7 @@
 import ImageComp from "../utils/ImageComp.astro"
 const { content } = Astro.props;
 ---
-<section class="flex flex-col md:flex-row items-center justify-between gap-8 p-8 bg-white max-w-5xl mx-auto">
+<section class="flex flex-col md:flex-row items-start justify-between gap-8 p-8 bg-white max-w-5xl mx-auto">
   <!-- Text content -->
   <div class="md:w-1/2 ">
     <p class="text-sm text-orange-400 mb-2">{content.upperHeading}</p>
@@ -14,7 +14,7 @@ const { content } = Astro.props;
       {
         content.bullets && content.bullets.map((bullet) => (
       <li class="flex gap-x-3">
-        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-7 w-5 flex-none text-indigo-500">
+        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-7 w-5 flex-none text-blue-500">
           <path d={bullet.icon || "M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"} clip-rule="evenodd" fill-rule="evenodd" />
         </svg>
         {bullet.title}
@@ -23,22 +23,23 @@ const { content } = Astro.props;
         ))
       }
     </ul>
-    <div class="flex items-center gap-4 ">
-      {
-        content.buttons && content.buttons.map((button) => ( 
-          <a class={`btn ${button.style} bg-blue-500 rounded-3xl text-white py-2 px-4`} href={button.href}>{button.text} →</a>
-        ))
-      }
-    </div>
   </div>
 
   <!-- Image content -->
-  <div class="md:w-1/2 relative rounded-3xl">
+  <div class="md:w-1/2 relative rounded-xl flex flex-col justify-between items-center">
     <ImageComp 
       src={content.image.src} 
       alt={content.image.alt} 
-      classes="w-full rounded-3xl shadow-lg"
+      classes="w-full rounded-xl shadow-lg"
     />
     <span class="absolute top-0 right-6 bg-blue-600 text-white text-sm px-3 py-6 rounded text-center">27 YEARS <br> <strong class="text-orange-300">OF EXPERIENCE</strong></span>
+    
+    <div class="flex items-center justify-center py-12 gap-4 ">
+      {
+        content.buttons && content.buttons.map((button) => ( 
+          <a class={`btn ${button.style} btn-enroll rounded-xl text-white py-2 px-4`} href={button.href}>{button.text} →</a>
+        ))
+      }
+    </div>
   </div>
 </section>
