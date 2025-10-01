@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import { SITE_TITLE, SITE_KEYWORDS } from "../data/consts";
+import { SITE_TITLE, KEYWORDS } from "../data/consts";
 
 interface Props {
   title: string;
@@ -17,7 +17,7 @@ const {
   title,
   description,
   image = "/blog-placeholder-1.jpg",
-  keywords = SITE_KEYWORDS,
+  keywords = KEYWORDS,
 } = Astro.props;
 ---
 

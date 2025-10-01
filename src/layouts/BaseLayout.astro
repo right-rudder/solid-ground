@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from "../data/consts";
+import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS } from "../data/consts";
 import Navbar from "../components/Navbar.astro";
 // import { getBreadcrumbsForPath } from "../utils/breadcrumbs";
 const { pathname } = Astro.url;
@@ -80,7 +80,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       description={siteDescription || SITE_DESCRIPTION}
       image={siteImage ||
         ""}
-      keywords={siteKeywords || SITE_KEYWORDS}
+      keywords={siteKeywords || KEYWORDS}
     />
     
     <!-- Breadcrumb Schema Markup -->
