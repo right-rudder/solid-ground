@@ -5,7 +5,7 @@ export const GeneralFAQs = [
     <strong>Typical costs:</strong>
     <ul class="list-disc pl-5 mt-2">
       <li>Private Pilot Ground School – $450 tuition + $300 materials</li>
-      <li>Simulator Training – $75 per hour (FAA-approved hours count toward PPL/Instrument Rating)</li>
+      <li>Simulator Training – $75 per hour (FAA Compliant hours count toward PPL/Instrument Rating)</li>
       <li>Summer Aviation Camp – $800 (includes 10+ hrs simulator, 15 hrs ground instruction, 1-hour flight experience)</li>
     </ul>
     <br/>
@@ -24,7 +24,7 @@ export const GeneralFAQs = [
   },
   {
     title: "What simulators and equipment are used?",
-    content: `We use the **FAA-approved SG-1 BATD** (Basic Aviation Training Device), simulating popular training aircraft such as the Cessna 172S, PA28-161, and PA28R-201.<br/><br/>
+    content: `We use the **FAA Compliant SG-1 BATD** (Basic Aviation Training Device), simulating popular training aircraft such as the Cessna 172S, PA28-161, and PA28R-201.<br/><br/>
     Our simulators feature:
     <ul class="list-disc pl-5 mt-2">
       <li>High-fidelity flight controls and instruments</li>
@@ -56,7 +56,7 @@ export const GeneralFAQs = [
     content: `Absolutely! Solid Ground Aviation provides **customized programs** for professional pilots, corporate teams, and returning “rusty” pilots.<br/><br/>
     Program benefits:
     <ul class="list-disc pl-5 mt-2">
-      <li>FAA-approved simulator hours counting toward certifications</li>
+      <li>FAA Compliant simulator hours counting toward certifications</li>
       <li>Flexible scheduling for busy professionals</li>
       <li>Focused practice on IFR, emergency procedures, and instrument proficiency</li>
     </ul>
