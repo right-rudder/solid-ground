@@ -1,5 +1,5 @@
 ---
-const leftImage = '/src/assets/student using simulator 2.jpg'; 
+const leftImage = '/src/assets/stock images/stock-hugo-k-b-09IUxUmCx7o-unsplash.jpg'; 
 const middleImage = '/src/assets/student using simulator 2.jpg'; 
 const rightBgImage = '/src/assets/student using simulator 2.jpg';
 
@@ -22,10 +22,10 @@ const { content } = Astro.props;
     class="w-1/2 ml-auto relative flex items-center justify-center p-10 text-white" 
     style={`background-image: url(/images/stock-arun-k-XYyWvaW4gys-unsplash.jpg); background-size: cover; background-position: center;`}
   >
-    <div class="bg-neutral-800/60 absolute inset-0 w-full text-center py-12 ">
-      <p class="text-sm text-yellow-400 mb-2">Special offer</p>
-      <h2 class="text-2xl font-bold mb-4">Meet our <span class="text-blue-500">Care Service</span></h2>
-      <p class="mb-6">for business people who appreciate time</p>
+    <div class="bg-neutral-800/60 absolute inset-0 w-full text-center flex flex-col justify-center items-center py-12 px-6 ">
+      <p class="text-sm text-yellow-400 mb-2">{content.upperHeading}</p>
+      <h2 class="text-2xl font-bold mb-4" set:html={content.title}></h2>
+      <p class="mb-6">{content.description}</p>
       <button class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-3xl text-white font-semibold">
         Read More →
       </button>

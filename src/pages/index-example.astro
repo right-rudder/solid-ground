@@ -1,0 +1,211 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Private Jet Charters — Demo</title>
+
+    <style>
+      *,*::before,*::after{box-sizing:border-box}
+      html,body{height:100%}
+      body{margin:0;font-family: "Helvetica Neue", Arial, sans-serif;color:#222;background:#fff;line-height:1.45;-webkit-font-smoothing:antialiased}
+      img{max-width:100%;height:auto;display:block}
+      a{color:inherit;text-decoration:none}
+      .container{max-width:1200px;margin:0 auto;padding:0 18px}
+
+      .header-wrapper{position:relative;z-index:50}
+      .navbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:relative}
+      .navbar .navbar-logo img{height:44px;display:block}
+      .nav{display:flex;gap:22px;align-items:center;margin:0}
+      .nav li{list-style:none}
+      .nav li a{display:inline-block;padding:8px 6px;color:#fff;font-weight:600;opacity:.95}
+      .nav li a:hover{opacity:1}
+      
+      @media (max-width:768px){ .nav{display:none} }
+
+      /* HERO / SLIDER */
+      .slider-zoom{position:relative;min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+      .zs-slideshow{position:absolute;inset:0;height:100%;width:100%;z-index:0}
+      .zs-slide{position:absolute;inset:0;background-size:cover;background-position:center center;opacity:0;transform:scale(1);transition:transform 20s ease-out,opacity .9s ease;will-change:transform,opacity}
+      .zs-slide.active{opacity:1;z-index:1;transform:scale(1.12)}
+      /* dark overlay for better text contrast */
+      .slider-zoom::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45));z-index:0}
+
+      /* slider content */
+      .ltx-zs-slider-wrapper{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:520px;padding:64px 18px}
+      .hero-content{max-width:820px;text-align:center;color:#fff}
+      .hero-content h1{font-size:3rem;line-height:1.02;margin-bottom:12px;font-weight:800}
+      .hero-content h1 span{color:#ffd66a} /* accent from theme */
+      .hero-content p{max-width:680px;margin:0 auto 24px;color:rgba(255,255,255,.95);font-size:1.05rem}
+
+      /* Buttons around hero */
+      .btn{display:inline-block;padding:12px 20px;border-radius:4px;font-weight:700;cursor:pointer;border:0}
+      .btn-main{background:#fff;color:#111;margin-right:8px;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+      .btn-main:hover{transform:translateY(-2px)}
+      .btn-second{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.85)}
+      .btn-second:hover{background:rgba(255,255,255,.12)}
+
+      /* slider arrows */
+      .zs-arrows{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:5;pointer-events:none}
+      .zs-arrows .arrow-left, .zs-arrows .arrow-right{
+        pointer-events:auto;
+        width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);color:#fff;margin:0 14px;cursor:pointer;backdrop-filter: blur(2px)
+      }
+      .zs-arrows .arrow-left{position:absolute;left:18px}
+      .zs-arrows .arrow-right{position:absolute;right:18px}
+
+      /* dots (overlay-dots) */
+      .overlay-dots .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;z-index:6;display:flex;gap:8px}
+      .overlay-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer}
+      .overlay-dots .dot.active{background:#ffd66a}
+
+      /* SERVICES section */
+      .services-sc{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:48px 18px;background:#f8f8f8}
+      .services-sc .service{width:300px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06);transition:transform .2s ease}
+      .services-sc .service:hover{transform:translateY(-8px)}
+      .services-sc .service .image{height:180px;overflow:hidden}
+      .services-sc .service .image img{width:100%;height:100%;object-fit:cover}
+      .services-sc .descr{padding:18px}
+      .services-sc .descr h4{margin:0 0 8px;font-size:1.05rem}
+      .services-sc .descr p{margin:0;color:#666;font-size:.95rem}
+
+      /* FOOTER */
+      .footer{background:#111;color:#ddd;padding:36px 18px;text-align:center}
+      .footer .logo img{height:36px;filter:brightness(200%)}
+
+      /* small screens */
+      @media (max-width:900px){
+        .hero-content h1{font-size:2.2rem}
+        .ltx-zs-slider-wrapper{padding:36px 12px}
+        .services-sc{gap:14px}
+      }
+      @media (max-width:600px){
+        .hero-content h1{font-size:1.8rem}
+        .btn-main{width:100%;display:block;margin:0 0 10px}
+        .btn-second{width:100%;display:block}
+        .services-sc .service{width:100%}
+        .header-wrapper{position:relative}
+      }
+
+      /* small fade-up for headings */
+      @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+      .hero-content h1,.hero-content p,.hero-content .btn{animation:fadeInUp .8s ease both}
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER (transparent on top of hero) -->
+    <header class="header-wrapper">
+      <div class="container">
+        <nav class="navbar">
+          <a class="navbar-logo" href="/">
+            <img src="//alavion.like-themes.com/wp-content/uploads/2018/02/logo_1x_white.png" alt="Alavion logo" />
+          </a>
+          <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO / SLIDER -->
+    <section class="slider-zoom overlay-dots">
+      <div class="zs-slideshow" aria-hidden="true">
+        <div class="zs-slide" style="background-image:url('https://alavion.like-themes.com/wp-content/uploads/2018/02/SLIDE_01.jpg')"></div>
+        <div class="zs-slide" style="background-image:url('https://alavion.like-themes.com/wp-content/uploads/2018/02/SLIDE_02.jpg')"></div>
+        <div class="zs-slide active" style="background-image:url('https://alavion.like-themes.com/wp-content/uploads/2018/02/SLIDE_03.jpg')"></div>
+        <div class="zs-slide" style="background-image:url('https://alavion.like-themes.com/wp-content/uploads/2018/02/SLIDE_04.jpg')"></div>
+      </div>
+
+      <div class="ltx-zs-slider-wrapper container">
+        <div class="hero-content">
+          <h1>Private <span>Jet Charters</span></h1>
+          <p>Ut non augue egestas, commodo velit eget, vestibulum tellus. Curabitur vulputate justo elit, at elementum orci pulvinar vel.</p>
+          <div class="hero-cta">
+            <a class="btn btn-main" href="/shop/">Book Now</a>
+            <a class="btn btn-second" href="/about/">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="zs-arrows" aria-hidden="false">
+        <div class="arrow-left" role="button" aria-label="Previous">&#10094;</div>
+        <div class="arrow-right" role="button" aria-label="Next">&#10095;</div>
+      </div>
+
+      <div class="dots" style="z-index:6;position:absolute;left:50%;transform:translateX(-50%);bottom:14px">
+        <div class="dot" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot active" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-sc" aria-label="services">
+      <article class="service">
+        <div class="image"><img src="https://alavion.like-themes.com/wp-content/uploads/2018/02/service_01-755x755.jpg" alt="Business Charter" /></div>
+        <div class="descr"><h4>Business Charter</h4><p>Cras eu lorem finibus, porta magna tortor</p></div>
+      </article>
+
+      <article class="service">
+        <div class="image"><img src="https://alavion.like-themes.com/wp-content/uploads/2018/02/service_02-755x755.jpg" alt="Private Charter" /></div>
+        <div class="descr"><h4>Private Charter</h4><p>Vestibulum tortor. Nullam bibendum ligula</p></div>
+      </article>
+
+      <article class="service">
+        <div class="image"><img src="https://alavion.like-themes.com/wp-content/uploads/2018/02/service_03-755x755.jpg" alt="Jet Rental" /></div>
+        <div class="descr"><h4>Jet Rental</h4><p>Finibus, porta magna eu, vestibulum</p></div>
+      </article>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="logo"><img src="//alavion.like-themes.com/wp-content/uploads/2018/02/logo_1x_white.png" alt="logo" /></div>
+        <p style="max-width:760px;margin:12px auto 0;color:#ddd">Etiam consequat sem ullamcorper, euismod metus sit amet, tristique justo. Vestibulum mattis, nisi ut faucibus commodo, risus ex commodo.</p>
+        <p style="margin-top:14px;color:#aaa;font-size:.9rem">&copy; Like-themes — All rights reserved</p>
+      </div>
+    </footer>
+
+    <!-- Minimal slider JS (autoplay + arrows + dots) -->
+    <script>
+      (function(){
+        const slides = Array.from(document.querySelectorAll('.zs-slide'));
+        const dots = Array.from(document.querySelectorAll('.dot'));
+        const prev = document.querySelector('.arrow-left');
+        const next = document.querySelector('.arrow-right');
+        let idx = slides.findIndex(s=>s.classList.contains('active'));
+        if(idx < 0) idx = 0;
+
+        function show(i){
+          slides.forEach((s,ii)=> {
+            s.classList.toggle('active', ii===i);
+          });
+          dots.forEach((d,ii)=> d.classList.toggle('active', ii===i));
+          idx = i;
+        }
+
+        function nextSlide(){ show((idx+1)%slides.length) }
+        function prevSlide(){ show((idx-1+slides.length)%slides.length) }
+
+        let auto = setInterval(nextSlide,4500);
+        // pause on hover
+        const hero = document.querySelector('.slider-zoom');
+        hero.addEventListener('mouseenter', ()=> clearInterval(auto));
+        hero.addEventListener('mouseleave', ()=> auto = setInterval(nextSlide,4500));
+
+        if(next) next.addEventListener('click', ()=> { nextSlide(); });
+        if(prev) prev.addEventListener('click', ()=> { prevSlide(); });
+
+        dots.forEach(d => d.addEventListener('click', e => show(Number(d.dataset.index))));
+      })();
+    </script>
+  </body>
+</html>
