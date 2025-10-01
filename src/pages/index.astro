@@ -8,6 +8,7 @@ import FAQs from '../components/Sections/FAQs.jsx';
 import CounterContainer from '../components/Cards/CounterContainer.astro';
 import Benefits from '../components/Sections/Benefits.astro';
 import WhatYouGet from '../components/Sections/WhatYouGet.astro';
+import Gallery from '../components/Sections/Gallery.astro';
 
 const data = {
 	header: {
@@ -32,6 +33,55 @@ const data = {
 			src: "/src/assets/student using simulator 2.jpg",
 			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
 		},
+	},
+
+	advantages: {
+		upperHeading: "Why Choose Us",
+		title: "Advantages of Simulator-Based Training",
+		description:
+			"Simulator-based training offers numerous benefits for aspiring pilots. Here are some key advantages:",
+		image: {
+			src: "/src/assets/student using simulator 2.jpg",
+			alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+		},
+		buttons: [
+			{ text: "Contact Us", href: "/contact" },
+			{ text: "View Courses", href: "/courses" },
+		],
+		advantages: {
+			title: "Advantages of Simulator Training",
+			description: "Simulator-based training provides a range of benefits that enhance your learning experience and pilot skills. ",
+			bullets: [
+				{
+					title: "Cost-Effective Training",
+					description:
+						"Simulator training is significantly more affordable than traditional flight training, allowing you to save money while gaining essential skills.",
+					image: {
+						src: "/src/assets/student using simulator 2.jpg",
+						alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+					},	
+				},
+				{
+					title: "Safe Learning Environment",
+					description:
+						"Practice emergency procedures and complex maneuvers in a risk-free setting, enhancing your confidence and competence.",
+					image: {
+						src: "/src/assets/student using simulator 2.jpg",
+						alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+					},	
+				},
+				{
+					title: "Weather-Proof Training",
+					description:
+						"Train regardless of weather conditions, ensuring consistent progress in your pilot education without delays.",
+					image: {
+						src: "/src/assets/student using simulator 2.jpg",
+						alt: "Student using FAA-approved flight simulator at Solid Ground Aviation",
+					},	
+				},
+			],
+		},
+
 	},
 	benefits: {
 		upperHeading: "Why Choose Us",
@@ -108,6 +158,7 @@ const data = {
 	<WhatYouGet content={data.offering} />
 	<Benefits content={data.benefits} />
 	<CounterContainer />
+	<Gallery content={data.advantages} />
 	<CTASimple content={data.cta} />
 	<FAQs faqs={GeneralFAQs} type="general" client:visible />
 </BaseLayout>
