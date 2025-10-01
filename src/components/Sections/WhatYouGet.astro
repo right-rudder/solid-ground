@@ -4,14 +4,13 @@ const { content } = Astro.props;
 ---
 <section class="flex flex-col md:flex-row items-center justify-between gap-8 p-8 bg-white max-w-5xl mx-auto">
   <!-- Text content -->
-  <div class="md:w-1/2">
+  <div class="md:w-1/2 ">
     <p class="text-sm text-orange-400 mb-2">{content.upperHeading}</p>
     <h2 class="text-3xl font-bold mb-4">{content.title}</h2>
-    <p class="text-gray-600 mb-6">
+    <p class="text-gray-600 mb-6 py-6 border-b-2 border-gray-300/90">
       {content.description}
     </p>
-    <div class="flex items-center gap-4">
-      <span class="text-blue-600 font-bold">8-800-10-500</span>
+    <div class="flex items-center gap-4 ">
       {
         content.buttons && content.buttons.map((button) => ( 
           <a class={`btn ${button.style} bg-blue-500 rounded-3xl text-white py-2 px-4`} href={button.href}>{button.text} →</a>
@@ -25,8 +24,8 @@ const { content } = Astro.props;
     <ImageComp 
       src={content.image.src} 
       alt={content.image.alt} 
-      class="w-full rounded-3xl shadow-lg"
+      classes="w-full rounded-3xl shadow-lg"
     />
-    <span class="absolute top-4 right-4 bg-blue-600 text-white text-sm px-3 py-1 rounded">27 YEARS OF EXPERIENCE</span>
+    <span class="absolute top-0 right-6 bg-blue-600 text-white text-sm px-3 py-6 rounded text-center">27 YEARS <br> <strong class="text-orange-300">OF EXPERIENCE</strong></span>
   </div>
 </section>
