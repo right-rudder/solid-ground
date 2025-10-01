@@ -1,62 +1,179 @@
 ---
+import LogoSolidGroundAviation from "./LogoSolidGroundAviation.astro";
+
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
-	<div class="social-links">
-		<a href="https://m.webtoo.ls/@astro" target="_blank">
-			<span class="sr-only">Follow Astro on Mastodon</span>
-			<svg
-				viewBox="0 0 16 16"
-				aria-hidden="true"
-				width="32"
-				height="32"
-				astro-icon="social/mastodon"
-				><path
-					fill="currentColor"
-					d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-				></path></svg
-			>
-		</a>
-		<a href="https://twitter.com/astrodotbuild" target="_blank">
-			<span class="sr-only">Follow Astro on Twitter</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"
-				><path
-					fill="currentColor"
-					d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-				></path></svg
-			>
-		</a>
-		<a href="https://github.com/withastro/astro" target="_blank">
-			<span class="sr-only">Go to Astro's GitHub repo</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
-				><path
-					fill="currentColor"
-					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-				></path></svg
-			>
-		</a>
-	</div>
+<footer class="pt-8 pr-8 pb-24 pl-8 bg-gray-100 text-gray-900">
+    <div
+        class="relative z-10 pt-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl border-b border-gray-500"
+    >
+        <div
+            class="flex flex-row gap-10 justify-between flex-wrap lg:text-left lg:pb-16 pb-10 lg:flex-nowrap lg:gap-20"
+        >
+            <!-- Column 1: Logo + Tagline + Location + Social -->
+            <div
+                class="flex flex-col items-center lg:flex-1 lg:text-left"
+            >
+                <a href="/" class="flex items-center mb-4">
+                    <LogoSolidGroundAviation />
+                </a>
+
+                <p class="text-sm text-justify mb-4 font-medium">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Omnis distinctio amet inventore esse veritatis? Natus
+                    dolorem voluptatem minima mollitia vero maiores inventore
+                    voluptas aliquid sapiente non, quis est, sed esse!
+                </p>
+
+                <!-- Social icons -->
+                <div
+                    class="flex items-start align-middle mt-4 gap-4 text-accent-500"
+                >
+                    <a
+                        href="https://www.instagram.com/flysolidground/"
+                        target="_blank"
+                        class="hover:text-gray-600"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"
+                            ></path>
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/flysolidground/"
+                        target="_blank"
+                        class="hover:text-gray-600"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"
+                            ></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2–4: Links in one row -->
+            <div
+                class="w-full flex flex-col justify-center gap-10 text-center sm:flex-row sm:text-left sm:justify-start lg:flex-1"
+            >
+                <div class="min-w-40">
+                    <p class="font-bold text-lg">
+                        Quick Links
+                    </p>
+                    <ul class="mt-2 space-y-2">
+                        <li>
+                            <a
+                                href="/"
+                                class="transition-colors duration-200 hover:!underline font-semibold"
+                            >
+                                Home
+                            </a>
+                        </li><li>
+                            <a
+                                href="/"
+                                class="transition-colors duration-200 hover:!underline font-semibold"
+                            >
+                                About Us
+                            </a>
+                        </li><li>
+                            <a
+                                href="/"
+                                class="transition-colors duration-200 hover:!underline font-semibold"
+                            >
+                                Training
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="mb-4 flex flex-col lg:items-start gap-2 min-w-40"
+                >
+                    <p class="font-bold text-lg">
+                        Location
+                    </p>
+                    <a
+                        href=""
+                        target="_blank"
+                        class="mt-1 flex items-center text-sm gap-2 font-semibold whitespace-nowrap justify-center hover:!underline sm:justify-normal"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            ><path
+                                fill="currentColor"
+                                d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"
+                            ></path></svg
+                        >
+                        7515 General Aviation Dr <br />
+                        Fort Meade, MD 20755
+                    </a>
+                    <a
+                        href="tel:2402443593"
+                        class="mt-1 flex items-center text-sm gap-2 font-semibold justify-center hover:!underline sm:justify-normal"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            ><path
+                                fill="currentColor"
+                                d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25c1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z"
+                            ></path></svg
+                        > (240)-244-3593
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full mb-6">
+            <span class="flex justify-center gap-2 text-center">
+                Powered by
+                <a
+                    href="https://rightruddermarketing.com/"
+                    target="_blank"
+                    class="text-bold group hover:!underline flex items-center gap-2 duration-200"
+                >
+                    <!-- <img
+                        src="/_astro/RRM-R-symbol-474.CtYGSrsP_E8XKn.webp"
+                        srcset="/_astro/RRM-R-symbol-474.CtYGSrsP_1k016R.webp 120w, /_astro/RRM-R-symbol-474.CtYGSrsP_Z1mC57W.webp 240w, /_astro/RRM-R-symbol-474.CtYGSrsP_E8XKn.webp 400w"
+                        alt="Right Rudder Marketing Logo"
+                        loading="lazy"
+                        sizes="(max-width: 120px) 120px, (max-width: 240px) 240px, (max-width: 540px) 540px, (max-width: 720px) 720px, (max-width: 1080px) 1080px, (max-width: 1440px) 1440px, 1920px"
+                        decoding="async"
+                        fetchpriority="low"
+                        width="400"
+                        height="474"
+                        class="h-6 w-auto group-hover:scale-105 group-hover:brightness-125 drop-shadow-md duration-300"
+                    /> -->
+                    More Right Rudder
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center gap-2 py-6">
+        <p class="text-sm">
+            &copy; Copyright {today.getFullYear()} • Solid Ground Aviation • All
+            rights reserved.
+        </p>
+    </div>
 </footer>
-<style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
-</style>
