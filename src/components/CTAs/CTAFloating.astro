@@ -1,20 +1,20 @@
 ---
 const leftImage = '/src/assets/stock images/stock-hugo-k-b-09IUxUmCx7o-unsplash.jpg'; 
-const middleImage = '/src/assets/student using simulator 2.jpg'; 
+const middleImage = '/src/assets/transparent4.png'; 
 const rightBgImage = '/src/assets/student using simulator 2.jpg';
 
 const { content } = Astro.props;
 ---
 
-<section class="relative w-full flex h-[500px] rounded-xl max-w-5xl mx-auto overflow-hidden mt-12">
+<section class="relative w-full flex h-[500px] rounded-xl max-w-5xl mx-auto  mt-12">
   <!-- Left Image -->
   <div class="w-1/2">
     <img src={leftImage} alt="Left Image" class="h-full w-full object-cover"/>
   </div>
 
   <!-- Middle "3D" Image -->
-  <!-- <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-    <img src={middleImage} alt="Middle Image" class="h-[400px]"/>
+  <!-- <div class="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 z-20">
+    <img src={middleImage} alt="Middle Image" class="h-[800px]"/>
   </div> -->
 
   <!-- Right Content -->
