@@ -7,3 +7,56 @@ a {
 body {
   font-family: "Open Sans Variable", system-ui, sans-serif;
 }
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+}
+// blue -> orange, white -> blue, trasnparent/gray -> white
+// what we offer -> colocar mais UVP, explicar melhor, treinamento seguro, condizente FAA, confiabiliade, simuladores configuraveis pro mesmo aviao que tu treina,
+// view courses -> white button
+// form
+// special offer -> pattern
+// CTA Discovery Session
+//
+
+.btn-main {
+  background: #fff;
+  color: #111;
+  margin-right: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  border-radius: 1.5rem;
+}
+.btn-main:hover {
+  transform: translateY(-2px);
+  background: oklch(62.3% 0.214 259.815);
+  color: #fff;
+}
+.btn-second {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 1.5rem;
+}
+
+.btn-second:hover {
+  background: #fff;
+  color: oklch(62.3% 0.214 259.815);
+}
+
+.btn-enroll {
+  background: #007ecb !important;
+  color: #fff;
+  margin-right: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  border-radius: 1.5rem;
+}
+
+.btn-enroll:hover {
+  background: #e06900 !important;
+  color: #fff;
+}

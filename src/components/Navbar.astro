@@ -10,7 +10,7 @@ export type MenuItem = {
 export type NavbarButton = {
   text: string;
   href: string;
-  style: "btn-main" | "btn-second";
+  style: "btn-main" | "btn-second" | "btn-enroll";
 };
 
 export const menu: MenuItem[] = [
@@ -21,7 +21,7 @@ export const menu: MenuItem[] = [
 ];
 
 export const buttons: NavbarButton[] = [
-  { text: "Enroll Now", href: "/#", style: "btn-main" },
+  { text: "Enroll Now", href: "/#", style: "btn-enroll" },
 ];
 ---
 
@@ -61,6 +61,7 @@ export const buttons: NavbarButton[] = [
       <span class="bar middle"></span>
       <span class="bar bottom"></span>
     </button>
+    
   </div>
 
   <!-- Mobile Menu -->
@@ -86,6 +87,8 @@ export const buttons: NavbarButton[] = [
       ))}
     </div>
   </div>
+
+  
 </nav>
 
 <style>
@@ -119,7 +122,11 @@ export const buttons: NavbarButton[] = [
   gap: 2rem;
   list-style: none;
 }
-.menu-item { position: relative; color: white; }
+.menu-item { 
+  position: relative; 
+  color: white; 
+  transition: color 0.3s ease;
+}
 .menu-item a {
   font-weight: 500;
   text-transform: uppercase;
@@ -127,6 +134,19 @@ export const buttons: NavbarButton[] = [
 }
 .menu-item a:hover {
   text-decoration: underline;
+  text-underline-offset: 2px;
+  color: oklch(83.7% 0.128 66.29);
+}
+.navbar.scrolled .menu-item {
+  color: oklch(62.3% 0.214 259.815);
+}
+
+.navbar.scrolled .menu-item a {
+  color: oklch(62.3% 0.214 259.815);
+}
+
+.navbar.scrolled .menu-item a:hover {
+  color: oklch(83.7% 0.128 66.29);
 }
 
 .sub-menu {
@@ -155,7 +175,7 @@ export const buttons: NavbarButton[] = [
 .sub-menu li a:hover {
   background: #007ecb;
   color: #fff;
-  transform: scale(1.05) skewX(-10deg);
+  transform: scale(1.05);
 }
 
 .buttons a {
@@ -165,9 +185,7 @@ export const buttons: NavbarButton[] = [
   text-decoration: none;
   transition: all 0.3s ease;
 }
-.btn-main { background-color: #007ecb; color: #fff;}
-.btn-second { background-color: #e06900; color: #fff; }
-.buttons a:hover { filter: brightness(1.1); }
+.buttons a:hover { filter: brightness(1.1);}
 
 .hamburger {
   display: none;
@@ -247,6 +265,7 @@ export const buttons: NavbarButton[] = [
   window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
       navbar.classList.add("scrolled");
+      
     } else {
       navbar.classList.remove("scrolled");
     }
