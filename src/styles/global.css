@@ -28,19 +28,21 @@ body {
   color: #111;
   margin-right: 8px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-  border-radius: 1.5rem;
-  transition: transform .3s ease;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
 }
+
 .btn-main:hover {
   transform: translateY(-2px);
   background: oklch(62.3% 0.214 259.815);
   color: #fff;
 }
+
 .btn-second {
   background: transparent;
-  color: #fff;
+  color: #e06900 !important;
   border: 2px solid rgba(255, 255, 255, 0.85);
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
 }
 
 .btn-second:hover {
