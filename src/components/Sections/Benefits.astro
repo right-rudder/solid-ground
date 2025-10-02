@@ -45,13 +45,4 @@ const { content } = Astro.props;
   
 	<CounterContainer />
   
-    <div class="pt-10 text-center flex gap-2 items-center justify-center">
-        {
-           content.buttons.map((button, index) => (
-                <a href={button.href} class={index%2 == 0 ? `btn-enroll`: `btn-main`}>
-                    {button.text}
-                </a>
-            ))
-        }
-    </div>
 </section>
