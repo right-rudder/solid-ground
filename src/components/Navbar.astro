@@ -21,14 +21,14 @@ export const menu: MenuItem[] = [
 ];
 
 export const buttons: NavbarButton[] = [
-  { text: "Enroll Now", href: "/##", style: "btn-enroll" },
+  { text: "Enroll Now", href: "/##", style: "btn-primary text-lg!" },
 ];
 ---
 
 <nav id="navbar" class="navbar">
   <div class="container">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="/" class="logo object-contain w-36 md:w-52 h-auto">
       <LogoSolidGroundAviation />
     </a>
 
@@ -92,6 +92,7 @@ export const buttons: NavbarButton[] = [
 </nav>
 
 <style>
+@import "tailwindcss";
 
 .navbar {
   position: fixed;
@@ -146,7 +147,7 @@ export const buttons: NavbarButton[] = [
 }
 
 .navbar.scrolled .menu-item a:hover {
-  color: oklch(83.7% 0.128 66.29);
+  color: #e06900;
 }
 
 .sub-menu {
