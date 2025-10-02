@@ -15,9 +15,9 @@ const { content } = Astro.props;
     <div class="hero-content">
       <h1><Fragment set:html={content.title} /></h1>
       <p>{content.description}</p>
-      <div class="hero-cta">
+      <div class="hero-cta flex justify-center gap-2">
         {content.buttons && content.buttons.map((button) => ( 
-          <a class={`btn ${button.style}`} href={button.href}>{button.text}</a>
+          <a class={`${button.style}`} href={button.href}>{button.text}</a>
 
         ))}
       </div>
@@ -25,8 +25,8 @@ const { content } = Astro.props;
   </div>
 
   <div class="zs-arrows" aria-hidden="false">
-    <div class="arrow-left" role="button" aria-label="Previous">&#10094;</div>
-    <div class="arrow-right" role="button" aria-label="Next">&#10095;</div>
+    <div class="arrow-left hidden! md:inline-flex!" role="button" aria-label="Previous">&#10094;</div>
+    <div class="arrow-right hidden! md:inline-flex!" role="button" aria-label="Next">&#10095;</div>
   </div>
 
   <div class="dots" style="z-index:6;position:absolute;left:50%;transform:translateX(-50%);bottom:14px">
@@ -75,11 +75,6 @@ const { content } = Astro.props;
   .hero-content p{max-width:680px;margin:0 auto 24px;color:rgba(255,255,255,.95);font-size:1.05rem}
 
   /* Buttons around hero */
-  .btn{display:inline-block;padding:12px 20px;border-radius:4px;font-weight:700;cursor:pointer;border:0}
-  .btn-main{background:#fff;color:#111;margin-right:8px;box-shadow:0 6px 18px rgba(0,0,0,.16);border-radius:1.5rem;}
-  .btn-main:hover{transform:translateY(-2px)}
-  .btn-second{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.85);border-radius:1.5rem;}
-  .btn-second:hover{background:rgba(255,255,255,.12)}
 
   /* slider arrows */
   .zs-arrows{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:5;pointer-events:none}
