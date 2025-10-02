@@ -17,8 +17,8 @@ const data = {
 		description:
 			"FAA Compliant simulator and ground school training – cost-effective, safe, and weather-proof pilot education serving Baltimore, Washington D.C., and surrounding Maryland communities.",
 		buttons: [
-			{ text: "Start Training", href: "/#contact", style: "btn-main" },
-			{ text: "Learn More", href: "/#about", style: "btn-second" },
+			{ text: "Start Training", href: "/#contact", style: "btn-secondary" },
+			{ text: "Learn More", href: "/#about", style: "btn-transparent" },
 		],
 	},
 
@@ -39,12 +39,12 @@ const data = {
 				"Our simulators provide a controlled environment where you can practice emergencies and advanced maneuvers without real-world risk."
 		},
 		{
-			title: "Configurable for Any Aircraft",
+			title: "Configurable Avionics",
 			description:
 				"Simulators are fully configurable to match the cockpit layout of a wide range of aircraft, giving you realistic hands-on experience."
 		},
 		{
-			title: "Reliable & Consistent Training",
+			title: "Reliable & Consistent",
 			description:
 				"Weather or scheduling won’t delay your progress, our simulators and programs keep your learning on track every day."
 		},
@@ -55,8 +55,8 @@ const data = {
 		}
 	],
 			buttons: [
-			{ text: "View Courses", href: "/#courses" },
-			{ text: "Contact Us", href: "/#contact" },
+			{ text: "View Courses", href: "/#courses", style: "btn-primary md:text-lg!" },
+			{ text: "Contact Us", href: "/#contact", style: "btn-accent md:text-lg!"  },
 		],
 		image: {
 			src: "/src/assets/student using simulator 2.jpg",
@@ -74,7 +74,7 @@ const data = {
 			alt: "Student using FAA Compliant flight simulator at Solid Ground Aviation",
 		},
 		buttons: [
-			{ text: "Contact Us", href: "/#contact" },
+			{ text: "Contact Us", href: "/#contact", style: "btn-accent text-base!" },
 		],
 		advantages: {
 			title: "How We Make You a Better Pilot",
@@ -199,7 +199,7 @@ const data = {
 
 <BaseLayout 
 	siteTitle="Solid Ground Aviation"
-  	siteDescription=" "
+  siteDescription=" "
 >
 	<HeaderSlider content={data.header} />
 	<WhatYouGet content={data.offering} />
