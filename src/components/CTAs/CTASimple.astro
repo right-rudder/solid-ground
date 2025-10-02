@@ -18,7 +18,7 @@ const example = {
 const { content = example } = Astro.props;
 ---
 
-<div class="py-12 sm:py-24">
+<div class="">
     <div
         class="mx-auto flex max-w-xl flex-col px-4 py-12 lg:max-w-7xl lg:flex-row lg:px-12"
     >
@@ -40,7 +40,7 @@ const { content = example } = Astro.props;
 					{content.description}
 				</p>
 				<div class="mt-10 flex">
-					<a href={content.button.href} class="btn btn-main"> {content.button.text}</a>
+					<a href={content.button.href} class="btn-accent"> {content.button.text}</a>
 				</div>
 			</div>
         </div>
