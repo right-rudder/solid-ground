@@ -10,6 +10,7 @@ import Benefits from '../components/Sections/Benefits.astro';
 import WhatYouGet from '../components/Sections/WhatYouGet.astro';
 import Gallery from '../components/Sections/Gallery.astro';
 import CTAFloating from '../components/CTAs/CTAFloating.astro';
+import GoogleReviews from '../components/External/GoogleReviews.astro';
 
 const data = {
 	header: {
@@ -111,6 +112,16 @@ const data = {
 		},
 	},
 
+	reviews: { 
+		upperHeading: "What Our Students Say",
+		title: "Trusted Training, Real Results",
+		description: "Solid Ground Aviation isn’t just a place to learn, it’s a community where future and current pilots gain the skills and confidence to succeed. Students praise our FAA-certified simulators, personalized approach from Todd O’Brien, and the flexibility that makes training fit real-life schedules. With affordable programs and a proven record of student success, Solid Ground Aviation has become the trusted choice for pilots at every stage of their journey.",
+		image: {
+			src: "",
+			alt: "",
+		},
+	},
+
 	benefits: {
 		upperHeading: "Your Path to Certification",
 		title: `Benefits for Aspiring and Licensed Pilots`,
@@ -205,6 +216,7 @@ const data = {
 	<WhatYouGet content={data.offering} />
 	<Benefits content={data.benefits} />
 	<Gallery content={data.advantages} />
+	<GoogleReviews content={data.reviews} />
 	<CTAFloating content={data.ctas.ctaFloating} />
 	<FAQs faqs={GeneralFAQs} />
 	<CTASimple content={data.cta} />
