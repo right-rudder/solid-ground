@@ -17,7 +17,6 @@ export const menu: MenuItem[] = [
   { label: "Home", url: "#", children: [{ label: "Solid Ground Aviation", url: "/" }, { label: "Flight Animation", url: "/homepage-animation" }] },
   { label: "About Us", url: "#", children: [{ label: "About Us", url: "/#" }, { label: "Team", url: "/#" },{ label: "Partners", url: "/#" }, { label: "FAQ", url: "/#" }, { label: "Blog", url: "/#" }] },
   { label: "Training", url: "#", children: [{ label: "Ground School", url: "/#" }, { label: "Student Pilots", url: "/#" }, { label: "Licensed Pilots", url: "/#" }, { label: "Instrument Currency", url: "/#" }] },
-  
 ];
 
 export const buttons: NavbarButton[] = [
@@ -87,8 +86,6 @@ export const buttons: NavbarButton[] = [
       ))}
     </div>
   </div>
-
-  
 </nav>
 
 <style>
@@ -138,17 +135,9 @@ export const buttons: NavbarButton[] = [
   text-underline-offset: 2px;
   color: oklch(83.7% 0.128 66.29);
 }
-.navbar.scrolled .menu-item {
-  color: oklch(62.3% 0.214 259.815);
-}
-
-.navbar.scrolled .menu-item a {
-  color: oklch(62.3% 0.214 259.815);
-}
-
-.navbar.scrolled .menu-item a:hover {
-  color: #e06900;
-}
+.navbar.scrolled .menu-item { color: oklch(62.3% 0.214 259.815); }
+.navbar.scrolled .menu-item a { color: oklch(62.3% 0.214 259.815); }
+.navbar.scrolled .menu-item a:hover { color: #e06900; }
 
 .sub-menu {
   position: absolute;
@@ -163,10 +152,7 @@ export const buttons: NavbarButton[] = [
   transition: all 0.3s ease;
   color: oklch(62.3% 0.214 259.815);
 }
-.menu-item:hover .sub-menu {
-  display: block;
-}
-
+.menu-item:hover .sub-menu { display: block; }
 .sub-menu li a {
   display: block;
   padding: 0.5rem 1rem;
@@ -198,6 +184,7 @@ export const buttons: NavbarButton[] = [
 }
 .bar { width: 24px; height: 2px; background: #333; transition: all 0.3s ease; }
 
+/* Mobile sheet (base) */
 .mobile-menu {
   position: absolute;
   width: 100%;
@@ -218,28 +205,7 @@ export const buttons: NavbarButton[] = [
   overflow: visible;
 }
 
-.mobile-submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.mobile-item:hover .mobile-submenu { max-height: 20rem; }
-
-.mobile-item > a::after {
-  content: "▸";
-  display: inline-block;
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.mobile-item .mobile-submenu.open + a::after,
-.mobile-item a.open::after {
-  transform: rotate(90deg);
-}
-
-
-/* Mobile submenu animation */
+/* Mobile submenu animation (base) */
 .mobile-submenu {
   max-height: 0;
   overflow: hidden;
@@ -247,13 +213,79 @@ export const buttons: NavbarButton[] = [
   opacity: 0;
 }
 .mobile-submenu.open {
-  max-height: 20rem; /* or big enough to fit content */
+  max-height: 20rem;
   opacity: 1;
 }
 
+/* ===== MOBILE-ONLY CHANGES BELOW ===== */
 @media (max-width: 768px) {
   .nav, .buttons { display: none; }
   .hamburger { display: flex; }
+
+  /* Closed state: no vertical padding, zero height */
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 0 16px;              /* was 12px 16px -> remove vertical padding */
+    max-height: 0;                /* keep collapsed */
+    overflow: hidden;             /* hide content */
+    transition: max-height 0.5s ease, padding 0.3s ease;
+  }
+
+  /* Open state: add vertical padding + usable height */
+  .mobile-menu.open {
+    padding-top: 12px;            /* only when open */
+    padding-bottom: 14px;         /* only when open */
+    max-height: calc(100vh - 64px);
+    overflow: auto;
+  }
+
+  /* Parent rows: larger tap targets + right chevron */
+  .mobile-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 4px;
+    font-weight: 600;
+    color: #111827;
+  }
+  .mobile-item > a::after {
+    content: "▸";
+    margin-left: 0.5rem;
+    transition: transform 0.25s ease;
+  }
+  .mobile-item > a.open::after { transform: rotate(90deg); }
+
+  /* Submenu styling */
+  .mobile-submenu {
+    border-left: 2px solid #e5e7eb;
+    margin-left: 10px;
+    padding-left: 6px;
+  }
+  .mobile-submenu li a {
+    display: block;
+    padding: 10px 12px 10px 24px;
+    border-radius: 6px;
+    color: #374151;
+  }
+  .mobile-submenu li a:hover { background: #f3f4f6; }
+
+  /* Sticky full-width CTA */
+  .mobile-buttons {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding: 12px 0 14px;
+    border-top: 1px solid #e5e7eb;
+  }
+  .mobile-buttons a { width: 100%; display: block; text-align: center; }
+
+  /* Hamburger contrast */
+  .navbar:not(.scrolled) .bar { background: #fff; }
+  .navbar.scrolled .bar { background: #333; }
 }
 </style>
 
@@ -266,7 +298,6 @@ export const buttons: NavbarButton[] = [
   window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
       navbar.classList.add("scrolled");
-      
     } else {
       navbar.classList.remove("scrolled");
     }
@@ -277,18 +308,27 @@ export const buttons: NavbarButton[] = [
     mobileMenu?.classList.toggle("open");
   });
 
-  // Mobile submenu toggles
+  // Mobile submenu toggles (tweak: mark link .open and animate height)
   const mobileItems = document.querySelectorAll(".mobile-item");
-
   mobileItems.forEach((item) => {
+    const link = item.querySelector(":scope > a");
     const submenu = item.querySelector(".mobile-submenu");
-    if (submenu) {
-      item.querySelector("a").addEventListener("click", (e) => {
-        e.preventDefault(); // prevent following link if has children
+    if (submenu && link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault(); // prevent navigation if it has children
+        const isOpen = submenu.classList.contains("open");
         submenu.classList.toggle("open");
+        link.classList.toggle("open");
+
+        // Smooth height animation
+        if (!isOpen) {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          submenu.style.opacity = "1";
+        } else {
+          submenu.style.maxHeight = "0px";
+          submenu.style.opacity = "0";
+        }
       });
     }
   });
-
-  
 </script>
