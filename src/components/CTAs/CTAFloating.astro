@@ -8,9 +8,9 @@ const rightBgImage = '/src/assets/student using simulator 2.jpg';
 const { content } = Astro.props;
 ---
 
-<section class="relative w-full flex h-[500px] rounded-xl overflow-hidden max-w-5xl mx-auto  mt-12">
+<section class="relative w-full flex h-[500px] md:rounded-xl overflow-hidden max-w-5xl mx-auto md:mt-12">
   <!-- Left Image -->
-  <div class="w-1/2">
+  <div class="w-0 md:w-1/2">
     <ImageComp
       src={leftImage}
       alt="Left Image"
@@ -26,7 +26,7 @@ const { content } = Astro.props;
 
   <!-- Right Content -->
   <div 
-    class="w-1/2 ml-auto relative flex items-center justify-center p-10 text-white" 
+    class="w-full md:w-1/2 ml-auto relative flex items-center justify-center p-10 text-white" 
     style={`background-image: url(/images/stock-arun-k-XYyWvaW4gys-unsplash.jpg); background-size: cover; background-position: center;`}
   >
     <div class="bg-neutral-800/60 absolute inset-0 w-full text-center flex flex-col justify-center items-center py-12 px-6 ">
