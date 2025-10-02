@@ -37,7 +37,7 @@ const { content } = Astro.props;
     <div class="flex items-center justify-center py-12 gap-4 ">
       {
         content.buttons && content.buttons.map((button) => ( 
-          <a class={`btn ${button.style} btn-enroll rounded-xl text-white py-2 px-4`} href={button.href}>{button.text} →</a>
+          <a class={`${button.style}`} href={button.href}>{button.text} →</a>
         ))
       }
     </div>
