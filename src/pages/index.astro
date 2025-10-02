@@ -10,6 +10,7 @@ import Benefits from '../components/Sections/Benefits.astro';
 import WhatYouGet from '../components/Sections/WhatYouGet.astro';
 import Gallery from '../components/Sections/Gallery.astro';
 import CTAFloating from '../components/CTAs/CTAFloating.astro';
+import GoogleReviews from '../components/External/GoogleReviews.astro';
 
 const data = {
 	header: {
@@ -205,6 +206,7 @@ const data = {
 	<WhatYouGet content={data.offering} />
 	<Benefits content={data.benefits} />
 	<Gallery content={data.advantages} />
+	<GoogleReviews />
 	<CTAFloating content={data.ctas.ctaFloating} />
 	<FAQs faqs={GeneralFAQs} />
 	<CTASimple content={data.cta} />
