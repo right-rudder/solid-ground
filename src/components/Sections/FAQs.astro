@@ -188,6 +188,7 @@ const { faqs = FAQsClass, type } = Astro.props;
             padding: "2rem 1.5rem",
             textAlign: "center",
         }}
+        class="flex flex-col items-center justify-center"
     >
         <div
             style={{
@@ -198,6 +199,7 @@ const { faqs = FAQsClass, type } = Astro.props;
                 alignItems: "center",
                 justifyContent: "center",
             }}
+            class="w-full"
         >
             <p
                 style={{
@@ -281,25 +283,6 @@ const { faqs = FAQsClass, type } = Astro.props;
                 }
             </dl>
         </div>
-
-        <a
-            href="/contact"
-            style={{
-                color: "#ffffff",
-                background: "#0067a9", // text-primary-700
-                padding: "0.75rem 1.5rem",
-                borderRadius: "1.5rem",
-                fontWeight: "600",
-                display: "inline-block",
-                marginTop: "3rem",
-                textAlign: "center",
-                maxWidth: "200px",
-                marginLeft: "auto",
-                marginRight: "auto",
-                textDecoration: "none",
-            }}
-        >
-            Contact Us
-        </a>
+        <small class="text-gray-700 mt-2">Got more any more questions? <a href="/contact" class="text-blue-600 hover:text-orange-400 transition-all duration-300">Contact Us</a> </small>
     </div>
 </div>
