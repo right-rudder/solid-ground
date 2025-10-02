@@ -89,8 +89,6 @@ export const buttons: NavbarButton[] = [
 </nav>
 
 <style>
-@import "tailwindcss";
-
 .navbar {
   position: fixed;
   top: 0;
@@ -137,27 +135,75 @@ export const buttons: NavbarButton[] = [
 }
 .navbar.scrolled .menu-item { color: oklch(62.3% 0.214 259.815); }
 .navbar.scrolled .menu-item a { color: oklch(62.3% 0.214 259.815); }
-.navbar.scrolled .menu-item a:hover { color: #e06900; }
+.navbar.scrolled .nav > .menu-item > a:hover {
+  color: #e06900;
+}
 
+/* Force submenu hover to stay white when scrolled */
+.navbar.scrolled .sub-menu li a:hover {
+  color: #fff;                /* text stays white */
+  background: #007ecb;        /* your existing submenu hover bg */
+}
+
+/* Dropdown (desktop) */
 .sub-menu {
   position: absolute;
   top: 100%;
   left: 0;
+  z-index: 40;
+  min-width: 220px;
+
   background: #fff;
   border: 1px solid #ddd;
   list-style: none;
   padding: 0.5rem 0;
-  display: none;
-  transform: translateY(5px);
-  transition: all 0.3s ease;
-  color: oklch(62.3% 0.214 259.815);
+
+  /* no display:none — use visibility + opacity to avoid hover gaps */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  /* 0.3s transition as requested */
+  transition:
+    opacity .3s ease,
+    transform .3s ease,
+    visibility .3s step-end; /* hide clicks when closed */
 }
-.menu-item:hover .sub-menu { display: block; }
+
+/* Show on hover */
+.menu-item:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition:
+    opacity .3s ease,
+    transform .3s ease,
+    visibility .3s step-start; /* become clickable immediately */
+}
+
+/* Small invisible “bridge” to prevent hover loss between item and submenu */
+.menu-item {
+  position: relative;
+}
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px;          /* adjust if you like */
+  background: transparent;
+}
+
+/* Dropdown items */
 .sub-menu li a {
   display: block;
   padding: 0.5rem 1rem;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  color: oklch(62.3% 0.214 259.815);
+  transition: background .3s ease, color .3s ease, transform .3s ease;
 }
 .sub-menu li a:hover {
   background: #007ecb;
