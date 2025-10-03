@@ -1,9 +1,11 @@
 ---
+import PilotExperienceFunnel from "./Sections/PilotExperienceFunnel.astro";
+
 const { content } = Astro.props;
 ---
     
 <!-- HERO / SLIDER -->
-<section class="slider-zoom overlay-dots hero">
+<section class="slider-zoom overlay-dots hero pt-24 lg:pt-32 pb-48 ">
   <div class="zs-slideshow" aria-hidden="true">
     <div class="zs-slide" style="background-image:url('/images/stock-angry-_-kat-_ZpYx5B8xic-unsplash.jpg')"></div>
     <div class="zs-slide" style="background-image:url('/images/stock-arun-k-XYyWvaW4gys-unsplash.jpg')"></div>
@@ -12,7 +14,7 @@ const { content } = Astro.props;
   </div>
 
   <div class="ltx-zs-slider-wrapper container">
-    <div class="hero-content">
+    <div class="hero-content pb-78 lg:pb-24">
       <h1><Fragment set:html={content.title} /></h1>
       <p>{content.description}</p>
       <div class="hero-cta flex justify-center gap-2">
@@ -23,22 +25,27 @@ const { content } = Astro.props;
       </div>
     </div>
   </div>
+  
+  <PilotExperienceFunnel />
 
-  <div class="zs-arrows" aria-hidden="false">
+  <div class="zs-arrows " aria-hidden="false">
     <div class="arrow-left hidden! md:inline-flex!" role="button" aria-label="Previous">&#10094;</div>
     <div class="arrow-right hidden! md:inline-flex!" role="button" aria-label="Next">&#10095;</div>
   </div>
 
-  <div class="dots" style="z-index:6;position:absolute;left:50%;transform:translateX(-50%);bottom:14px">
+  <div class="dots " style="z-index:6;position:absolute;left:50%;transform:translateX(-50%);bottom:14px">
     <div class="dot" data-index="0"></div>
     <div class="dot" data-index="1"></div>
     <div class="dot active" data-index="2"></div>
     <div class="dot" data-index="3"></div>
   </div>
+  
+  
   <div class="absolute inset-0 bg-black/50 w-full h-full">
-
   </div>
 </section>
+
+
 
 <style>
   *,*::before,*::after{box-sizing:border-box}
