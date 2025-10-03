@@ -1,0 +1,66 @@
+---
+import ImageComp from "../utils/ImageComp.astro";
+
+const { content } = Astro.props;
+
+const data = [
+    {
+        title: "New to Flying",
+        button: {
+            text: "Start your pilot journey today",
+            href: "/new-to-flying-programs",
+        },
+        image: {
+            src: "/src/assets/simulator SG-2-21.jpg",
+            alt: "Student using FAA-compliant flight simulator, beginner pilot training",
+        },
+        classes: "border-b-2 lg:border-b-0 lg:border-r-2 border-white/30",
+    },
+    {
+        title: "In Training",
+        button: {
+            text: "Enhance your skills or prepare for your next rating",
+            href: "/in-training-pilots-programs",
+            style: "",
+        },
+        image: {
+            src: "/src/assets/stock images/stock-roman-rezor-JDVWST6x3-E-unsplash.jpg",
+            alt: "Student pilot practicing on simulator, instrument rating training",
+        },
+        classes: "border-b-2 lg:border-b-0 lg:border-r-2 border-white/30",
+    },
+    {
+        title: "Licensed Pilots",
+        button: {
+            text: "Keep your skills sharp or add hours safely",
+            href: "/licensed-pilots-programs",
+            style: "",
+        },
+        image: {
+            src: "/src/assets/stock images/stock-chris-henry-brc2sfT65gE-unsplash.jpg",
+            alt: "Licensed pilot using FAA-compliant simulator for recurrent training",
+        },
+        classes: "",
+    },
+];
+
+
+---
+<section class="absolute bottom-0 z-30 bg-gray-900 lg:bg-blue-500/30 -left-0 flex flex-col lg:flex-row gap-2 py-8 items-start justify-center border-t-2 border-white/30 w-[100vw] ">
+    {data.map((link) => (
+        <div class={" group flex px-6 lg:px-12 py-4 gap-4 mx-2 lg:min-h-40 " + " " + link.classes}>
+            <div class="bg-white rounded-full w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center group-hover:scale-125 transition-all duration-500 ">
+                <ImageComp 
+                    src={link.image.src}
+                    alt={link.image.alt}
+                    classes="w-full h-full object-cover rounded-full"
+                />
+            </div>
+
+            <a href={link.button.href} class={"flex flex-col text-left max-w-3xs items-start justify-baseline min-h-20 ease-in-out transition-all duration-500 "}>
+                <p class=" ease-in-out transition-all duration-500 group-hover:text-white text-sm lg:text-base uppercase font-semibold text-orange-300">{link.title}</p>
+                <p class=" max-w-[10rem] text-2xs text-neutral-300">{link.button.text} <span class="lg:hidden">→</span></p>
+            </a>
+        </div>
+    ))}
+</section>
